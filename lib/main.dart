@@ -115,7 +115,7 @@ class LinePainter extends CustomPainter{
     var paint = Paint()
       ..color = Color(0xffe63d59)
       ..style = PaintingStyle.stroke
-      ..strokeWidth = 250;
+      ..strokeWidth = size.width*1.4;
 
     final arc1 = Path();
     arc1.moveTo(size.width*0, size.height*0.4);
