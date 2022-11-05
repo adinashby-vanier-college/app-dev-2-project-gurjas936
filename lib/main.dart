@@ -41,10 +41,6 @@ class MyApp extends StatelessWidget {
                     ),
                   ),
 
-                  // SizedBox(
-                  //   height:10.0,
-                  //   width:20.0,
-                  // ),
 
 /////////////////////////////////////////////          SIGN IN BUTTON
 
