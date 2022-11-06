@@ -1,6 +1,8 @@
 import 'package:blood_bank/screens/signIn.dart';
 import 'package:flutter/material.dart';
 
+import 'createAccount.dart';
+
 class mainScreen extends StatefulWidget {
   const mainScreen({Key? key}) : super(key: key);
 
@@ -39,7 +41,7 @@ class _mainScreenState extends State<mainScreen> {
                     // color: Colors.cyan,
                       image:DecorationImage(
                           image: AssetImage('images/logo-removebg-preview.png')
-                      )
+                      ),
                   ),
                 ),
               ),
@@ -62,10 +64,8 @@ class _mainScreenState extends State<mainScreen> {
                 onPressed: () {
                   Navigator.push(context,
                     MaterialPageRoute(builder: (context) => signIn()),
-
                   );
-
-                },
+                  },
 
                 child: Text(
                   'Sign in',
@@ -97,7 +97,11 @@ class _mainScreenState extends State<mainScreen> {
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10)),
                 ),
-                onPressed: () { },
+                onPressed: () {
+                  Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => createAccount()),
+                  );
+                },
 
                 child: Text(
                   'Create Account',
