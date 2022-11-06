@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:blood_bank/screens/mainScreen.dart';
 import 'package:blood_bank/screens/signIn.dart';
 import 'package:flutter/material.dart';
@@ -12,7 +14,14 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // bool _isLoading = true;
+    // Timer(Duration(seconds: 2), () {
+    //   setState(() {
+    //     _isLoading = false;
+    //   });
+    // });
     return MaterialApp(
+
       home: mainScreen(),
     );
   }

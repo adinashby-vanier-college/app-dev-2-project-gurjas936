@@ -29,16 +29,18 @@ class _mainScreenState extends State<mainScreen> {
               ),
             ),
 
-            SizedBox(
-              child: Container(
-                height: 350.0,
-                width: 350.0,
-                margin: EdgeInsets.only(left:20, top: 60),
-                decoration: BoxDecoration(
-                  // color: Colors.cyan,
-                    image:DecorationImage(
-                        image: AssetImage('images/logo-removebg-preview.png')
-                    )
+            Center(
+              child: SizedBox(
+                child: Container(
+                  height: 350.0,
+                  width: 350.0,
+                  margin: EdgeInsets.only(top: 60),
+                  decoration: BoxDecoration(
+                    // color: Colors.cyan,
+                      image:DecorationImage(
+                          image: AssetImage('images/logo-removebg-preview.png')
+                      )
+                  ),
                 ),
               ),
             ),
@@ -53,7 +55,9 @@ class _mainScreenState extends State<mainScreen> {
                 style: ElevatedButton.styleFrom(
 
                   backgroundColor: Colors.white,
-                  // side: BorderSide(width: 3.0, color: Color(0xffe72041)),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10)),
+                  // side: BorderSide(width: 1.0, color: Color(0xffffffff)),
                 ),
                 onPressed: () {
                   Navigator.push(context,
@@ -90,6 +94,8 @@ class _mainScreenState extends State<mainScreen> {
                 style: TextButton.styleFrom(
                   backgroundColor: Color(0xffe72041),
                   side: BorderSide(width: 3.0, color: Colors.white),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10)),
                 ),
                 onPressed: () { },
 
