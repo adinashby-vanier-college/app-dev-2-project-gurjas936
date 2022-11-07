@@ -32,7 +32,7 @@ class signIn extends StatelessWidget {
                   hintText: "Email Id",
                   border: OutlineInputBorder(
                     borderSide: BorderSide(width: 3,
-                      color: Colors.white,
+                      color:  Colors.white70,
                     ),
                   ),
                   suffixIcon: IconButton(
@@ -56,6 +56,25 @@ class signIn extends StatelessWidget {
               ),
             ),
           ),
+          Container(
+            margin: EdgeInsets.all(20),
+            alignment: Alignment.centerRight,
+            child: TextButton(
+              onPressed: () {
+                //forgot password screen
+              },
+
+
+              child: const Text('Forgot Password!',),
+
+
+            ),
+          ),
+
+
+
+
+
         ],
       ),
     );
