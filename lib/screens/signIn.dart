@@ -46,7 +46,7 @@ class signIn extends StatelessWidget {
 
 
           Container(
-            padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
+            padding: EdgeInsets.all(20.0),
             child: TextField(
               obscureText: true,
               controller: passwordController,
