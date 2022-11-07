@@ -27,11 +27,14 @@ class signIn extends StatelessWidget {
           Container(
             padding: EdgeInsets.all(20.0),
             child: TextField(
+              style: TextStyle(fontSize: 25,color:Colors.white),
               controller: _textController,
-              decoration: InputDecoration(fillColor: Colors.white,
-                  hintText: "Email Id",
+              decoration: InputDecoration(
+                  //fillColor: Colors.cyanAccent,
+
+                  hintText: "Email id",
                   border: OutlineInputBorder(
-                    borderSide: BorderSide(width: 3,
+                    borderSide: BorderSide(width: 10,
                       color:  Colors.white70,
                     ),
                   ),
@@ -48,6 +51,7 @@ class signIn extends StatelessWidget {
           Container(
             padding: EdgeInsets.all(20.0),
             child: TextField(
+              style: TextStyle(fontSize: 25,color: Colors.white),
               obscureText: true,
               controller: passwordController,
               decoration: const InputDecoration(
@@ -59,7 +63,10 @@ class signIn extends StatelessWidget {
           Container(
             margin: EdgeInsets.all(20),
             alignment: Alignment.centerRight,
-            child: TextButton(
+            child: TextButton( style: TextButton.styleFrom(
+              textStyle: const TextStyle(fontSize: 25),
+              foregroundColor: Colors.white,
+            ),
               onPressed: () {
                 //forgot password screen
               },
