@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 
 class signIn extends StatelessWidget {
   // const signIn({Key? key}) : super(key: key);
-final _textController = TextEditingController();
+  final _textController = TextEditingController();
+  final passwordController = TextEditingController();
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,40 +23,46 @@ final _textController = TextEditingController();
               foregroundPainter: LinePainter(),
             ),
           ),
-
-          SizedBox(
-            height: 300.0
-
-          ),
-
-
+          SizedBox(height: 300.0),
           Container(
-            // padding: EdgeInsets.all(20.0),
+            padding: EdgeInsets.all(20.0),
             child: TextField(
               controller: _textController,
-                decoration: InputDecoration(
+              decoration: InputDecoration(fillColor: Colors.white,
                   hintText: "Email Id",
-                  border: OutlineInputBorder(),
+                  border: OutlineInputBorder(
+                    borderSide: BorderSide(width: 3,
+                      color: Colors.white,
+                    ),
+                  ),
                   suffixIcon: IconButton(
-                    onPressed: ()  {
+                    onPressed: () {
                       _textController.clear();
                     },
                     icon: Icon(Icons.clear),
-                  )
-
-                ),
-
+                  )),
             ),
           ),
 
 
-
-
+          Container(
+            padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
+            child: TextField(
+              obscureText: true,
+              controller: passwordController,
+              decoration: const InputDecoration(
+                border: OutlineInputBorder(),
+                labelText: 'Password',
+              ),
+            ),
+          ),
         ],
       ),
     );
   }
 }
+
+
 
 class LinePainter extends CustomPainter {
   @override
