@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class signIn extends StatelessWidget {
   // const signIn({Key? key}) : super(key: key);
   final _textController = TextEditingController();
-  final passwordController = TextEditingController();
+  final _passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -22,40 +22,52 @@ class signIn extends StatelessWidget {
               foregroundPainter: LinePainter(),
             ),
           ),
-          SizedBox(height: 300.0),
+          SizedBox(height: 257.0), /////     create space above the fields
           Container(
             padding: EdgeInsets.only(right: 20.0, left: 20.0, bottom: 10),
             child: TextField(
               controller: _textController,
               decoration: InputDecoration(
-                  fillColor: Colors.white,
+                  fillColor: Color(0xffe72041),
                   hintText: "Email Id",
+                  hintStyle: TextStyle(color: Colors.white, fontFamily: 'Qiucksand'),
                   filled: true,
-                  border: OutlineInputBorder(
-                    borderSide: BorderSide(),
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(15),
+                    borderSide: BorderSide(width: 3, color: Colors.white),
                   ),
                   suffixIcon: IconButton(
                     onPressed: () {
                       _textController.clear();
                     },
-                    icon: Icon(Icons.clear),
+                    icon: Icon(Icons.clear, color: Colors.white,),
                   )),
             ),
           ),
 
           ///////////////////////////////////// Password Field
 
-
           Container(
-            padding: EdgeInsets.only(right: 20.0, left: 20),
+            padding: EdgeInsets.only(right: 20.0, left: 20.0, bottom: 10),
             child: TextField(
+              controller: _passwordController,
               obscureText: true,
-              controller: passwordController,
-              decoration: const InputDecoration(
-                border: OutlineInputBorder(),
-                hintText: 'Password',
-                fillColor: Colors.white,
-                filled: true,
+              decoration: InputDecoration(
+                  fillColor: Color(0xffe72041),
+                  hintText: "Password",
+                  hintStyle: TextStyle(color: Colors.white, fontFamily: 'Qiucksand'),
+                  filled: true,
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(15),
+                    borderSide: BorderSide(width: 3, color: Colors.white),
+                  ),
+                  suffixIcon: IconButton(
+                    onPressed: () {
+                      obscureText: false;
+                    },
+
+                    icon: Icon(Icons.remove_red_eye_outlined, color: Colors.white,),
+                  ),
               ),
             ),
           ),
@@ -73,10 +85,7 @@ class signIn extends StatelessWidget {
                   fontFamily: 'Quicksand',
                 ),
               ),
-              onPressed: () {
-
-
-              },
+              onPressed: () {},
             ),
           ),
         ],
