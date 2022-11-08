@@ -29,7 +29,8 @@ class signIn extends StatelessWidget {
             child: TextField(
               style: TextStyle(fontSize: 25,color:Colors.white),
               controller: _textController,
-              decoration: InputDecoration(
+              decoration: InputDecoration(fillColor: Colors.white,
+                  filled: true,
                   //fillColor: Colors.cyanAccent,
 
                   hintText: "Email id",
@@ -54,7 +55,8 @@ class signIn extends StatelessWidget {
               style: TextStyle(fontSize: 25,color: Colors.white),
               obscureText: true,
               controller: passwordController,
-              decoration: const InputDecoration(
+              decoration: const InputDecoration(fillColor: Colors.white,
+                filled: true,
                 border: OutlineInputBorder(),
                 labelText: 'Password',
               ),
