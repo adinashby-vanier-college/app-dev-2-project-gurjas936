@@ -5,7 +5,6 @@ class signIn extends StatelessWidget {
   final _textController = TextEditingController();
   final passwordController = TextEditingController();
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,19 +24,15 @@ class signIn extends StatelessWidget {
           ),
           SizedBox(height: 300.0),
           Container(
-            padding: EdgeInsets.all(20.0),
+            padding: EdgeInsets.only(right: 20.0, left: 20.0, bottom: 10),
             child: TextField(
-              style: TextStyle(fontSize: 25,color:Colors.white),
               controller: _textController,
-              decoration: InputDecoration(fillColor: Colors.white,
+              decoration: InputDecoration(
+                  fillColor: Colors.white,
+                  hintText: "Email Id",
                   filled: true,
-                  //fillColor: Colors.cyanAccent,
-
-                  hintText: "Email id",
                   border: OutlineInputBorder(
-                    borderSide: BorderSide(width: 10,
-                      color:  Colors.white70,
-                    ),
+                    borderSide: BorderSide(),
                   ),
                   suffixIcon: IconButton(
                     onPressed: () {
@@ -48,49 +43,47 @@ class signIn extends StatelessWidget {
             ),
           ),
 
+          ///////////////////////////////////// Password Field
+
 
           Container(
-            padding: EdgeInsets.all(20.0),
+            padding: EdgeInsets.only(right: 20.0, left: 20),
             child: TextField(
-              style: TextStyle(fontSize: 25,color: Colors.white),
               obscureText: true,
               controller: passwordController,
-              decoration: const InputDecoration(fillColor: Colors.white,
-                filled: true,
+              decoration: const InputDecoration(
                 border: OutlineInputBorder(),
-                labelText: 'Password',
+                hintText: 'Password',
+                fillColor: Colors.white,
+                filled: true,
               ),
             ),
           ),
+
+          //////////////////////////////////////////Forgot Password
+
           Container(
-            margin: EdgeInsets.all(20),
+            margin: EdgeInsets.only(right: 20),
             alignment: Alignment.centerRight,
-            child: TextButton( style: TextButton.styleFrom(
-              textStyle: const TextStyle(fontSize: 25),
-              foregroundColor: Colors.white,
-            ),
+            child: TextButton(
+              child: Text(
+                "Forgot Password!",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontFamily: 'Quicksand',
+                ),
+              ),
               onPressed: () {
-                //forgot password screen
+
+
               },
-
-
-              child: const Text('Forgot Password!',),
-
-
             ),
           ),
-
-
-
-
-
         ],
       ),
     );
   }
 }
-
-
 
 class LinePainter extends CustomPainter {
   @override
