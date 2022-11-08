@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
     //     _isLoading = false;
     //   });
     // });
-    return MaterialApp(
+    return const MaterialApp(
 
       home: mainScreen(),
     );

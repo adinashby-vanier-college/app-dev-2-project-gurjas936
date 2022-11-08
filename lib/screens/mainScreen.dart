@@ -15,17 +15,17 @@ class _mainScreenState extends State<mainScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
 
-      backgroundColor: Color(0xffe72041),
+      backgroundColor: const Color(0xffe72041),
       body: Center(
         child: Column(
           //   mainAxisAlignment: MainAxisAlignment.center,
           // // crossAxisAlignment: CrossAxisAlignment.center,
           children:<Widget>[
             Container(
-              margin: EdgeInsets.only(right: 250.0),
+              margin: const EdgeInsets.only(right: 250.0),
               height: 100.00,
               width: 200.00,
-              color: Color(0xffe72041),
+              color: const Color(0xffe72041),
               child: CustomPaint(
                 foregroundPainter: LinePainter(),
               ),
@@ -36,8 +36,8 @@ class _mainScreenState extends State<mainScreen> {
                 child: Container(
                   height: 350.0,
                   width: 350.0,
-                  margin: EdgeInsets.only(top: 60),
-                  decoration: BoxDecoration(
+                  margin: const EdgeInsets.only(top: 60),
+                  decoration: const BoxDecoration(
                     // color: Colors.cyan,
                       image:DecorationImage(
                           image: AssetImage('images/logo-removebg-preview.png')
@@ -67,7 +67,7 @@ class _mainScreenState extends State<mainScreen> {
                   );
                   },
 
-                child: Text(
+                child: const Text(
                   'Sign in',
                   style: TextStyle(
                       color: Color(0xffe72041),
@@ -79,7 +79,7 @@ class _mainScreenState extends State<mainScreen> {
               ),
             ),
 
-            SizedBox(
+            const SizedBox(
               height: 15,
             ),
 
@@ -92,18 +92,18 @@ class _mainScreenState extends State<mainScreen> {
 
 
                 style: TextButton.styleFrom(
-                  backgroundColor: Color(0xffe72041),
-                  side: BorderSide(width: 3.0, color: Colors.white),
+                  backgroundColor: const Color(0xffe72041),
+                  side: const BorderSide(width: 3.0, color: Colors.white),
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10)),
                 ),
                 onPressed: () {
                   Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => createAccount()),
+                    MaterialPageRoute(builder: (context) => const createAccount()),
                   );
                 },
 
-                child: Text(
+                child: const Text(
                   'Create Account',
                   style: TextStyle(
                       color: Colors.white,
@@ -128,7 +128,7 @@ class LinePainter extends CustomPainter{
   @override
   void paint(Canvas canvas, Size size){
     var paint = Paint()
-      ..color = Color(0xffe63d59)
+      ..color = const Color(0xffe63d59)
       ..style = PaintingStyle.stroke
       ..strokeWidth = size.width*1.4;
 
@@ -136,7 +136,7 @@ class LinePainter extends CustomPainter{
     arc1.moveTo(size.width*0, size.height*0.4);
     arc1.arcToPoint(
       Offset(size.width*0.4, size.height*0),
-      radius: Radius.circular(30),
+      radius: const Radius.circular(30),
       clockwise: false,
 
     );

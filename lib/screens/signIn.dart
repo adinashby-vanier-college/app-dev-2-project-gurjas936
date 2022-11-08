@@ -8,39 +8,39 @@ class signIn extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xffe72041),
+      backgroundColor: const Color(0xffe72041),
       body: Column(
         //   mainAxisAlignment: MainAxisAlignment.center,
         // // crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           Container(
-            margin: EdgeInsets.only(right: 250.0),
+            margin: const EdgeInsets.only(right: 250.0),
             height: 100.00,
             width: 200.00,
-            color: Color(0xffe72041),
+            color: const Color(0xffe72041),
             child: CustomPaint(
               foregroundPainter: LinePainter(),
             ),
           ),
-          SizedBox(height: 257.0), /////     create space above the fields
+          const SizedBox(height: 257.0), /////     create space above the fields
           Container(
-            padding: EdgeInsets.only(right: 20.0, left: 20.0, bottom: 10),
+            padding: const EdgeInsets.only(right: 20.0, left: 20.0, bottom: 10),
             child: TextField(
               controller: _textController,
               decoration: InputDecoration(
-                  fillColor: Color(0xffe72041),
+                  fillColor: const Color(0xffe72041),
                   hintText: "Email Id",
-                  hintStyle: TextStyle(color: Colors.white, fontFamily: 'Qiucksand'),
+                  hintStyle: const TextStyle(color: Colors.white, fontFamily: 'Qiucksand'),
                   filled: true,
                   enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(15),
-                    borderSide: BorderSide(width: 3, color: Colors.white),
+                    borderSide: const BorderSide(width: 3, color: Colors.white),
                   ),
                   suffixIcon: IconButton(
                     onPressed: () {
                       _textController.clear();
                     },
-                    icon: Icon(Icons.clear, color: Colors.white,),
+                    icon: const Icon(Icons.clear, color: Colors.white,),
                   )),
             ),
           ),
@@ -48,25 +48,25 @@ class signIn extends StatelessWidget {
           ///////////////////////////////////// Password Field
 
           Container(
-            padding: EdgeInsets.only(right: 20.0, left: 20.0, bottom: 10),
+            padding: const EdgeInsets.only(right: 20.0, left: 20.0, bottom: 10),
             child: TextField(
               controller: _passwordController,
               obscureText: true,
               decoration: InputDecoration(
-                  fillColor: Color(0xffe72041),
+                  fillColor: const Color(0xffe72041),
                   hintText: "Password",
-                  hintStyle: TextStyle(color: Colors.white, fontFamily: 'Qiucksand'),
+                  hintStyle: const TextStyle(color: Colors.white, fontFamily: 'Qiucksand'),
                   filled: true,
                   enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(15),
-                    borderSide: BorderSide(width: 3, color: Colors.white),
+                    borderSide: const BorderSide(width: 3, color: Colors.white),
                   ),
                   suffixIcon: IconButton(
                     onPressed: () {
                       obscureText: false;
                     },
 
-                    icon: Icon(Icons.remove_red_eye_outlined, color: Colors.white,),
+                    icon: const Icon(Icons.remove_red_eye_outlined, color: Colors.white,),
                   ),
               ),
             ),
@@ -75,10 +75,10 @@ class signIn extends StatelessWidget {
           //////////////////////////////////////////Forgot Password
 
           Container(
-            margin: EdgeInsets.only(right: 20),
+            margin: const EdgeInsets.only(right: 20),
             alignment: Alignment.centerRight,
             child: TextButton(
-              child: Text(
+              child: const Text(
                 "Forgot Password!",
                 style: TextStyle(
                   color: Colors.white,
@@ -98,7 +98,7 @@ class LinePainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     var paint = Paint()
-      ..color = Color(0xffe63d59)
+      ..color = const Color(0xffe63d59)
       ..style = PaintingStyle.stroke
       ..strokeWidth = size.width * 1.4;
 
@@ -106,7 +106,7 @@ class LinePainter extends CustomPainter {
     arc1.moveTo(size.width * 0, size.height * 0.4);
     arc1.arcToPoint(
       Offset(size.width * 0.4, size.height * 0),
-      radius: Radius.circular(30),
+      radius: const Radius.circular(30),
       clockwise: false,
     );
     canvas.drawPath(arc1, paint);
