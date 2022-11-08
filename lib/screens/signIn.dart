@@ -75,7 +75,7 @@ class signIn extends StatelessWidget {
           //////////////////////////////////////////Forgot Password
 
           Container(
-            margin: const EdgeInsets.only(right: 20),
+            margin: const EdgeInsets.only(right: 20, bottom: 30),
             alignment: Alignment.centerRight,
             child: TextButton(
               child: const Text(
@@ -88,6 +88,36 @@ class signIn extends StatelessWidget {
               onPressed: () {},
             ),
           ),
+
+          SizedBox(
+            width: 350,
+            height: 55,
+            child: TextButton(
+              style: ElevatedButton.styleFrom(
+
+                backgroundColor: Colors.white,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10)),
+                // side: BorderSide(width: 1.0, color: Color(0xffffffff)),
+              ),
+              onPressed: () {
+                Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => signIn()),
+                );
+              },
+
+              child: const Text(
+                'Sign in',
+                style: TextStyle(
+                    color: Color(0xffe72041),
+                    fontFamily: 'Quicksand',
+                    fontWeight: FontWeight.w900,
+                    fontSize: 20
+                ),
+              ),
+            ),
+          ),
+
         ],
       ),
     );
