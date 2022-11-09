@@ -15,34 +15,39 @@ class createAccount extends StatelessWidget {
     return Scaffold(
 
       backgroundColor: const Color(0xffe72041),
-      body: Column(
-        //   mainAxisAlignment: MainAxisAlignment.center,
-        // // crossAxisAlignment: CrossAxisAlignment.center,
-        children: <Widget>[
-          Container(
-            margin: const EdgeInsets.only(right: 250.0),
-            height: 10.00,
-            width: 200.00,
-            color: const Color(0xffe72041),
-            child: CustomPaint(
-              foregroundPainter: LinePainter(),
+    body: Center(
+    child: Column(
+    //   mainAxisAlignment: MainAxisAlignment.center,
+    // // crossAxisAlignment: CrossAxisAlignment.center,
+    children:<Widget>[
+    Row(
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: [Container(
+    // margin: const EdgeInsets.only(right: 250.0),
+    height: 100.00,
+    width: 200.00,
+    color: const Color(0xffe72041),
+    child: CustomPaint(
+    foregroundPainter: LinePainter(),
+    ),
+    ),
+    ],
+    ),
+          Center(
+            child: SizedBox(
+              child: Container(
+                height: 250.0,
+                width: 250.0,
+                margin: const EdgeInsets.only(top: 60),
+                decoration: const BoxDecoration(
+                  // color: Colors.cyan,
+                  image:DecorationImage(
+                      image: AssetImage('images/logo-removebg-preview.png')
+                  ),
+                ),
+              ),
             ),
           ),
-          // Center(
-          //   child: SizedBox(
-          //     child: Container(
-          //       height: 250.0,
-          //       width: 250.0,
-          //       margin: const EdgeInsets.only(top: 60),
-          //       decoration: const BoxDecoration(
-          //         // color: Colors.cyan,
-          //         image:DecorationImage(
-          //             image: AssetImage('images/logo-removebg-preview.png')
-          //         ),
-          //       ),
-          //     ),
-          //   ),
-          // ),
           const SizedBox(height: 10.0), /////     create space above the fields
           Container(
             padding: const EdgeInsets.only(right: 20.0, left: 20.0, bottom: 10),
@@ -207,8 +212,10 @@ class createAccount extends StatelessWidget {
           ),
 
         ],
+    ),
       ),
     );
+
   }
 }
 

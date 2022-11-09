@@ -21,14 +21,18 @@ class _mainScreenState extends State<mainScreen> {
           //   mainAxisAlignment: MainAxisAlignment.center,
           // // crossAxisAlignment: CrossAxisAlignment.center,
           children:<Widget>[
-            Container(
-              margin: const EdgeInsets.only(right: 250.0),
-              height: 100.00,
-              width: 200.00,
-              color: const Color(0xffe72041),
-              child: CustomPaint(
-                foregroundPainter: LinePainter(),
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [Container(
+                // margin: const EdgeInsets.only(right: 250.0),
+                height: 100.00,
+                width: 200.00,
+                color: const Color(0xffe72041),
+                child: CustomPaint(
+                  foregroundPainter: LinePainter(),
+                ),
               ),
+      ],
             ),
 
             Center(
