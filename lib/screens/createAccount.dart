@@ -18,14 +18,29 @@ class createAccount extends StatelessWidget {
         children: <Widget>[
           Container(
             margin: const EdgeInsets.only(right: 250.0),
-            height: 100.00,
+            height: 10.00,
             width: 200.00,
             color: const Color(0xffe72041),
             child: CustomPaint(
               foregroundPainter: LinePainter(),
             ),
           ),
-          const SizedBox(height: 257.0), /////     create space above the fields
+          Center(
+            child: SizedBox(
+              child: Container(
+                height: 250.0,
+                width: 250.0,
+                margin: const EdgeInsets.only(top: 60),
+                decoration: const BoxDecoration(
+                  // color: Colors.cyan,
+                  image:DecorationImage(
+                      image: AssetImage('images/logo-removebg-preview.png')
+                  ),
+                ),
+              ),
+            ),
+          ),
+          const SizedBox(height: 10.0), /////     create space above the fields
           Container(
             padding: const EdgeInsets.only(right: 20.0, left: 20.0, bottom: 10),
             child: TextField(
