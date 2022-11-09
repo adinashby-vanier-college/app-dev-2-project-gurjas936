@@ -3,6 +3,9 @@ import 'package:flutter/material.dart';
 class createAccount extends StatelessWidget {
   //const createAccount({Key? key}) : super(key: key);
   final _textController = TextEditingController();
+  final _name = TextEditingController();
+  final _age = TextEditingController();
+  final _bloodGroup = TextEditingController();
   final _passwordController = TextEditingController();
 
   createAccount({super.key});
@@ -44,7 +47,7 @@ class createAccount extends StatelessWidget {
           Container(
             padding: const EdgeInsets.only(right: 20.0, left: 20.0, bottom: 10),
             child: TextField(
-              controller: _textController,
+              controller: _name,
               decoration: InputDecoration(
                   fillColor: const Color(0xffe72041),
                   hintText: "Name",
@@ -66,7 +69,7 @@ class createAccount extends StatelessWidget {
           Container(
             padding: const EdgeInsets.only(right: 20.0, left: 20.0, bottom: 10),
             child: TextField(
-              controller: _textController,
+              controller: _age,
               decoration: InputDecoration(
                   fillColor: const Color(0xffe72041),
                   hintText: "Age",
@@ -87,7 +90,7 @@ class createAccount extends StatelessWidget {
           Container(
             padding: const EdgeInsets.only(right: 20.0, left: 20.0, bottom: 10),
             child: TextField(
-              controller: _textController,
+              controller: _bloodGroup,
               decoration: InputDecoration(
                   fillColor: const Color(0xffe72041),
                   hintText: "Blood Group",
