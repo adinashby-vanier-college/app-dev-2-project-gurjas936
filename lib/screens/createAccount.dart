@@ -5,6 +5,8 @@ class createAccount extends StatelessWidget {
   final _textController = TextEditingController();
   final _passwordController = TextEditingController();
 
+  createAccount({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,6 +26,73 @@ class createAccount extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 257.0), /////     create space above the fields
+          Container(
+            padding: const EdgeInsets.only(right: 20.0, left: 20.0, bottom: 10),
+            child: TextField(
+              controller: _textController,
+              decoration: InputDecoration(
+                  fillColor: const Color(0xffe72041),
+                  hintText: "Name",
+                  hintStyle: const TextStyle(color: Colors.white, fontFamily: 'Qiucksand'),
+                  filled: true,
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(15),
+                    borderSide: const BorderSide(width: 3, color: Colors.white),
+                  ),
+                  suffixIcon: IconButton(
+                    onPressed: () {
+                      _textController.clear();
+                    },
+                    icon: const Icon(Icons.clear, color: Colors.white,),
+                  )),
+            ),
+          ),
+
+          Container(
+            padding: const EdgeInsets.only(right: 20.0, left: 20.0, bottom: 10),
+            child: TextField(
+              controller: _textController,
+              decoration: InputDecoration(
+                  fillColor: const Color(0xffe72041),
+                  hintText: "Age",
+                  hintStyle: const TextStyle(color: Colors.white, fontFamily: 'Qiucksand'),
+                  filled: true,
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(15),
+                    borderSide: const BorderSide(width: 3, color: Colors.white),
+                  ),
+                  suffixIcon: IconButton(
+                    onPressed: () {
+                      _textController.clear();
+                    },
+                    icon: const Icon(Icons.clear, color: Colors.white,),
+                  )),
+            ),
+          ),
+          Container(
+            padding: const EdgeInsets.only(right: 20.0, left: 20.0, bottom: 10),
+            child: TextField(
+              controller: _textController,
+              decoration: InputDecoration(
+                  fillColor: const Color(0xffe72041),
+                  hintText: "Blood Group",
+                  hintStyle: const TextStyle(color: Colors.white, fontFamily: 'Qiucksand'),
+                  filled: true,
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(15),
+                    borderSide: const BorderSide(width: 3, color: Colors.white),
+                  ),
+                  suffixIcon: IconButton(
+                    onPressed: () {
+                      _textController.clear();
+                    },
+                    icon: const Icon(Icons.clear, color: Colors.white,),
+                  )),
+            ),
+          ),
+
+
+
           Container(
             padding: const EdgeInsets.only(right: 20.0, left: 20.0, bottom: 10),
             child: TextField(
@@ -108,7 +177,7 @@ class createAccount extends StatelessWidget {
               },
 
               child: const Text(
-                'Sign in',
+                'Create Account',
                 style: TextStyle(
                     color: Color(0xffe72041),
                     fontFamily: 'Quicksand',

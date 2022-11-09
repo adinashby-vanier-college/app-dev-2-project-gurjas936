@@ -1,7 +1,7 @@
 import 'package:blood_bank/screens/signIn.dart';
 import 'package:flutter/material.dart';
-
-import 'createAccount.dart';
+import 'package:blood_bank/screens/createAccount.dart';
+//import 'createAccount.dart';
 
 class mainScreen extends StatefulWidget {
   const mainScreen({Key? key}) : super(key: key);
@@ -99,7 +99,7 @@ class _mainScreenState extends State<mainScreen> {
                 ),
                 onPressed: () {
                   Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => const createAccount()),
+                    MaterialPageRoute(builder: (context) =>  createAccount()),
                   );
                 },
 
