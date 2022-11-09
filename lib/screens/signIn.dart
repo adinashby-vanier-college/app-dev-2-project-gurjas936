@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 class signIn extends StatelessWidget {
   // const signIn({Key? key}) : super(key: key);
   final _textController = TextEditingController();
+
   final _passwordController = TextEditingController();
 
   @override
@@ -14,15 +15,15 @@ class signIn extends StatelessWidget {
         // // crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           Container(
-            margin: const EdgeInsets.only(right: 250.0),
-            height: 100.00,
-            width: 200.00,
+            margin: const EdgeInsets.only(right: 150.0),
+            height: 50.00,
+            width: 50.00,
             color: const Color(0xffe72041),
             child: CustomPaint(
               foregroundPainter: LinePainter(),
             ),
           ),
-          const SizedBox(height: 257.0), /////     create space above the fields
+          const SizedBox(height: 270.0), /////     create space above the fields
           Container(
             padding: const EdgeInsets.only(right: 20.0, left: 20.0, bottom: 10),
             child: TextField(
@@ -63,7 +64,7 @@ class signIn extends StatelessWidget {
                   ),
                   suffixIcon: IconButton(
                     onPressed: () {
-                      obscureText: false;
+                      //obscureText: false;
                     },
 
                     icon: const Icon(Icons.remove_red_eye_outlined, color: Colors.white,),
