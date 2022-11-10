@@ -126,24 +126,46 @@ class signIn extends StatelessWidget {
 
           Padding(
 
-            padding: const EdgeInsets.all(20.0),
+            padding: const EdgeInsets.all(25.0),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
 
 
-                Container(
-                    width: 50,
-                    height: 50,
-                    child: Image.asset('images/facebookicon.png')
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Container(
+                      width: 50,
+                      height: 50,
+                      child: Image.asset('images/facebookicon.png')
+                  ),
                 ),
 
-                Container(
-                    width: 50,
-                    height: 50,
-                    child: Image.asset('images/facebookicon.png')
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Container(
+                      width: 50,
+                      height: 50,
+                      child: Image.asset('images/instaicon.jpg')
+                  ),
                 ),
 
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Container(
+                      width: 50,
+                      height: 50,
+                      child: Image.asset('images/twittericon.png')
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Container(
+                      width: 50,
+                      height: 50,
+                      child: Image.asset('images/whatsappicon.png')
+                  ),
+                ),
               ],
             ),
           ),
