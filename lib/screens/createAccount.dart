@@ -52,7 +52,7 @@ class createAccount extends StatelessWidget {
               decoration: InputDecoration(
                   fillColor: const Color(0xffe72041),
                   hintText: "Name",
-                  hintStyle: const TextStyle(color: Colors.white, fontFamily: 'Qiucksand'),
+                  hintStyle: const TextStyle(color: Colors.white, fontFamily: 'Quicksand'),
                   filled: true,
                   enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(15),
@@ -74,7 +74,7 @@ class createAccount extends StatelessWidget {
               decoration: InputDecoration(
                   fillColor: const Color(0xffe72041),
                   hintText: "Age",
-                  hintStyle: const TextStyle(color: Colors.white, fontFamily: 'Qiucksand'),
+                  hintStyle: const TextStyle(color: Colors.white, fontFamily: 'Quicksand'),
                   filled: true,
                   enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(15),
@@ -95,7 +95,7 @@ class createAccount extends StatelessWidget {
               decoration: InputDecoration(
                   fillColor: const Color(0xffe72041),
                   hintText: "Blood Group",
-                  hintStyle: const TextStyle(color: Colors.white, fontFamily: 'Qiucksand'),
+                  hintStyle: const TextStyle(color: Colors.white, fontFamily: 'Quicksand'),
                   filled: true,
                   enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(15),
@@ -119,7 +119,7 @@ class createAccount extends StatelessWidget {
               decoration: InputDecoration(
                   fillColor: const Color(0xffe72041),
                   hintText: "Email Id",
-                  hintStyle: const TextStyle(color: Colors.white, fontFamily: 'Qiucksand'),
+                  hintStyle: const TextStyle(color: Colors.white, fontFamily: 'Quicksand'),
                   filled: true,
                   enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(15),
@@ -144,7 +144,7 @@ class createAccount extends StatelessWidget {
               decoration: InputDecoration(
                 fillColor: const Color(0xffe72041),
                 hintText: "Password",
-                hintStyle: const TextStyle(color: Colors.white, fontFamily: 'Qiucksand'),
+                hintStyle: const TextStyle(color: Colors.white, fontFamily: 'Quicksand'),
                 filled: true,
                 enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(15),

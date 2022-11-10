@@ -31,7 +31,7 @@ class signIn extends StatelessWidget {
               decoration: InputDecoration(
                   fillColor: const Color(0xffe72041),
                   hintText: "Email Id",
-                  hintStyle: const TextStyle(color: Colors.white, fontFamily: 'Qiucksand'),
+                  hintStyle: const TextStyle(color: Colors.white, fontFamily: 'Quicksand'),
                   filled: true,
                   enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(15),
@@ -56,7 +56,7 @@ class signIn extends StatelessWidget {
               decoration: InputDecoration(
                   fillColor: const Color(0xffe72041),
                   hintText: "Password",
-                  hintStyle: const TextStyle(color: Colors.white, fontFamily: 'Qiucksand'),
+                  hintStyle: const TextStyle(color: Colors.white, fontFamily: 'Quicksand'),
                   filled: true,
                   enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(15),
@@ -118,6 +118,31 @@ class signIn extends StatelessWidget {
               ),
             ),
           ),
+
+          Padding(
+
+            padding: const EdgeInsets.all(20.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+
+
+                Container(
+                    width: 50,
+                    height: 50,
+                    child: Image.asset('images/facebookicon.png')
+                ),
+
+                Container(
+                    width: 50,
+                    height: 50,
+                    child: Image.asset('images/facebookicon.png')
+                ),
+
+              ],
+            ),
+          ),
+
 
         ],
       ),
