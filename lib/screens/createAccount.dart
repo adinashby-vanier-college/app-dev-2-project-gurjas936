@@ -29,21 +29,21 @@ class createAccount extends StatelessWidget {
               foregroundPainter: LinePainter(),
             ),
           ),
-          // Center(
-          //   child: SizedBox(
-          //     child: Container(
-          //       height: 250.0,
-          //       width: 250.0,
-          //       margin: const EdgeInsets.only(top: 60),
-          //       decoration: const BoxDecoration(
-          //         // color: Colors.cyan,
-          //         image:DecorationImage(
-          //             image: AssetImage('images/logo-removebg-preview.png')
-          //         ),
-          //       ),
-          //     ),
-          //   ),
-          // ),
+          Center(
+            child: SizedBox(
+              child: Container(
+                height: 250.0,
+                width: 250.0,
+                margin: const EdgeInsets.only(top: 60),
+                decoration: const BoxDecoration(
+                  // color: Colors.cyan,
+                  image:DecorationImage(
+                      image: AssetImage('images/logo-removebg-preview.png')
+                  ),
+                ),
+              ),
+            ),
+          ),
           const SizedBox(height: 10.0), /////     create space above the fields
           Container(
             padding: const EdgeInsets.only(right: 20.0, left: 20.0, bottom: 10),
