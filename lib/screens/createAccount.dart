@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:blood_bank/screens/navBar.dart';
 
 class createAccount extends StatelessWidget {
   //const createAccount({Key? key}) : super(key: key);
@@ -154,7 +155,7 @@ class createAccount extends StatelessWidget {
                     obscureText: false;
                   },
 
-                  icon: const Icon(Icons.remove_red_eye_outlined, color: Colors.white,),
+                  icon: const Icon(Icons.remove_red_eye_outlined , color: Colors.white,),
                 ),
               ),
             ),
