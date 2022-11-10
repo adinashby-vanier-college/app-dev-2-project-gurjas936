@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:blood_bank/screens/navBar.dart';
 
 class signIn extends StatelessWidget {
   // const signIn({Key? key}) : super(key: key);
@@ -23,6 +24,10 @@ class signIn extends StatelessWidget {
               foregroundPainter: LinePainter(),
             ),
           ),
+
+
+
+          ////////////////////////////////////////////////Email input
           const SizedBox(height: 270.0), /////     create space above the fields
           Container(
             padding: const EdgeInsets.only(right: 20.0, left: 20.0, bottom: 10),
@@ -103,7 +108,7 @@ class signIn extends StatelessWidget {
               ),
               onPressed: () {
                 Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => signIn()),
+                  MaterialPageRoute(builder: (context) => NavBar()),
                 );
               },
 
