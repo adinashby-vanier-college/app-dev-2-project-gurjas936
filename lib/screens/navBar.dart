@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 class NavBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+
     return Drawer(
         child: ListView(
         children: [
@@ -27,7 +28,27 @@ class NavBar extends StatelessWidget {
                   image: NetworkImage('https://media.istockphoto.com/id/1252380604/photo/note-paper-with-blood-donation-concept-on-red-background.jpg?b=1&s=170667a&w=0&k=20&c=HJpGKpSF3ULIBECqzb6vr2zT5dx-dhbGmbOoI5XsRxo=')
               ),
             ),
-          ),
+    ),
+            ListTile(
+              leading: Icon(Icons.person),
+              title: Text('Edit Profile'),
+              onTap: () => null,
+            ),
+            ListTile(
+              leading: Icon(Icons.history),
+              title: Text('History'),
+              onTap: () => null,
+            ),
+            ListTile(
+              leading: Icon(Icons.feedback),
+              title: Text('Feedback'),
+              onTap: () => null,
+            ),
+            ListTile(
+              leading: Icon(Icons.settings),
+              title: Text('Settings'),
+            ),
+
         ],
         ),
 
