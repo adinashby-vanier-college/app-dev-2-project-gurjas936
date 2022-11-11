@@ -14,7 +14,6 @@ class createAccount extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       backgroundColor: const Color(0xffe72041),
       body: Column(
         //   mainAxisAlignment: MainAxisAlignment.center,
@@ -34,141 +33,173 @@ class createAccount extends StatelessWidget {
               ),
             ],
           ),
-          Center(
-            child: SizedBox(
-              child: Container(
-                height: 200.0,
-                width: 200.0,
-                margin: const EdgeInsets.only(top: 100),
-                decoration: const BoxDecoration(
-                  // color: Colors.cyan,
-                  image:DecorationImage(
-                      image: AssetImage('images/logo-removebg-preview.png')
+          Container(
+            // children: [
+            //   Center(
+                child: SizedBox(
+                  child: Container(
+                    height: 200.0,
+                    width: 200.0,
+                    margin: const EdgeInsets.only(top: 100),
+                    decoration: const BoxDecoration(
+                      // color: Colors.cyan,
+                      image: DecorationImage(
+                          image:
+                              AssetImage('images/logo-removebg-preview.png')),
+                    ),
                   ),
                 ),
               ),
-            ),
-          ),
-          const SizedBox(height: 10.0), /////     create space above the fields
-          Container(
-            padding: const EdgeInsets.only(right: 20.0, left: 20.0, bottom: 10),
-            child: TextField(
-              controller: _name,
-              decoration: InputDecoration(
-                  fillColor: const Color(0xffe72041),
-                  hintText: "Name",
-                  hintStyle: const TextStyle(color: Colors.white, fontFamily: 'Quicksand'),
-                  filled: true,
-                  enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(15),
-                    borderSide: const BorderSide(width: 3, color: Colors.white),
-                  ),
-                  suffixIcon: IconButton(
-                    onPressed: () {
-                      _textController.clear();
-                    },
-                    icon: const Icon(Icons.clear, color: Colors.white,),
-                  )),
-            ),
-          ),
 
-          Container(
-            padding: const EdgeInsets.only(right: 20.0, left: 20.0, bottom: 10),
-            child: TextField(
-              controller: _age,
-              decoration: InputDecoration(
-                  fillColor: const Color(0xffe72041),
-                  hintText: "Age",
-                  hintStyle: const TextStyle(color: Colors.white, fontFamily: 'Quicksand'),
-                  filled: true,
-                  enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(15),
-                    borderSide: const BorderSide(width: 3, color: Colors.white),
-                  ),
-                  suffixIcon: IconButton(
-                    onPressed: () {
-                      _textController.clear();
-                    },
-                    icon: const Icon(Icons.clear, color: Colors.white,),
-                  )),
-            ),
-          ),
-          Container(
-            padding: const EdgeInsets.only(right: 20.0, left: 20.0, bottom: 10),
-            child: TextField(
-              controller: _bloodGroup,
-              decoration: InputDecoration(
-                  fillColor: const Color(0xffe72041),
-                  hintText: "Blood Group",
-                  hintStyle: const TextStyle(color: Colors.white, fontFamily: 'Quicksand'),
-                  filled: true,
-                  enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(15),
-                    borderSide: const BorderSide(width: 3, color: Colors.white),
-                  ),
-                  suffixIcon: IconButton(
-                    onPressed: () {
-                      _textController.clear();
-                    },
-                    icon: const Icon(Icons.clear, color: Colors.white,),
-                  )),
-            ),
-          ),
-
-
-
-          Container(
-            padding: const EdgeInsets.only(right: 20.0, left: 20.0, bottom: 10),
-            child: TextField(
-              controller: _textController,
-              decoration: InputDecoration(
-                  fillColor: const Color(0xffe72041),
-                  hintText: "Email Id",
-                  hintStyle: const TextStyle(color: Colors.white, fontFamily: 'Quicksand'),
-                  filled: true,
-                  enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(15),
-                    borderSide: const BorderSide(width: 3, color: Colors.white),
-                  ),
-                  suffixIcon: IconButton(
-                    onPressed: () {
-                      _textController.clear();
-                    },
-                    icon: const Icon(Icons.clear, color: Colors.white,),
-                  )),
-            ),
-          ),
-
-          ///////////////////////////////////// Password Field
-
-          Container(
-            padding: const EdgeInsets.only(right: 20.0, left: 20.0, bottom: 10),
-            child: TextField(
-              controller: _passwordController,
-              obscureText: true,
-              decoration: InputDecoration(
-                fillColor: const Color(0xffe72041),
-                hintText: "Password",
-                hintStyle: const TextStyle(color: Colors.white, fontFamily: 'Quicksand'),
-                filled: true,
-                enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(15),
-                  borderSide: const BorderSide(width: 3, color: Colors.white),
-                ),
-                suffixIcon: IconButton(
-                  onPressed: () {
-                    obscureText: false;
-                  },
-
-                  icon: const Icon(Icons.remove_red_eye_outlined , color: Colors.white,),
+              const SizedBox(height: 10.0),
+              /////     create space above the fields
+              Container(
+                padding:
+                    const EdgeInsets.only(right: 20.0, left: 20.0, bottom: 10),
+                child: TextField(
+                  controller: _name,
+                  decoration: InputDecoration(
+                      fillColor: const Color(0xffe72041),
+                      hintText: "Name",
+                      hintStyle: const TextStyle(
+                          color: Colors.white, fontFamily: 'Quicksand'),
+                      filled: true,
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(15),
+                        borderSide:
+                            const BorderSide(width: 3, color: Colors.white),
+                      ),
+                      suffixIcon: IconButton(
+                        onPressed: () {
+                          _textController.clear();
+                        },
+                        icon: const Icon(
+                          Icons.clear,
+                          color: Colors.white,
+                        ),
+                      )),
                 ),
               ),
-            ),
-          ),
 
-          //////////////////////////////////////////Forgot Password
+              Container(
+                padding:
+                    const EdgeInsets.only(right: 20.0, left: 20.0, bottom: 10),
+                child: TextField(
+                  controller: _age,
+                  decoration: InputDecoration(
+                      fillColor: const Color(0xffe72041),
+                      hintText: "Age",
+                      hintStyle: const TextStyle(
+                          color: Colors.white, fontFamily: 'Quicksand'),
+                      filled: true,
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(15),
+                        borderSide:
+                            const BorderSide(width: 3, color: Colors.white),
+                      ),
+                      suffixIcon: IconButton(
+                        onPressed: () {
+                          _textController.clear();
+                        },
+                        icon: const Icon(
+                          Icons.clear,
+                          color: Colors.white,
+                        ),
+                      )),
+                ),
+              ),
+              Container(
+                padding:
+                    const EdgeInsets.only(right: 20.0, left: 20.0, bottom: 10),
+                child: TextField(
+                  controller: _bloodGroup,
+                  decoration: InputDecoration(
+                      fillColor: const Color(0xffe72041),
+                      hintText: "Blood Group",
+                      hintStyle: const TextStyle(
+                          color: Colors.white, fontFamily: 'Quicksand'),
+                      filled: true,
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(15),
+                        borderSide:
+                            const BorderSide(width: 3, color: Colors.white),
+                      ),
+                      suffixIcon: IconButton(
+                        onPressed: () {
+                          _textController.clear();
+                        },
+                        icon: const Icon(
+                          Icons.clear,
+                          color: Colors.white,
+                        ),
+                      )),
+                ),
+              ),
 
-        /*  Container(
+              Container(
+                padding:
+                    const EdgeInsets.only(right: 20.0, left: 20.0, bottom: 10),
+                child: TextField(
+                  controller: _textController,
+                  decoration: InputDecoration(
+                      fillColor: const Color(0xffe72041),
+                      hintText: "Email Id",
+                      hintStyle: const TextStyle(
+                          color: Colors.white, fontFamily: 'Quicksand'),
+                      filled: true,
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(15),
+                        borderSide:
+                            const BorderSide(width: 3, color: Colors.white),
+                      ),
+                      suffixIcon: IconButton(
+                        onPressed: () {
+                          _textController.clear();
+                        },
+                        icon: const Icon(
+                          Icons.clear,
+                          color: Colors.white,
+                        ),
+                      )),
+                ),
+              ),
+
+              ///////////////////////////////////// Password Field
+
+              Container(
+                padding:
+                    const EdgeInsets.only(right: 20.0, left: 20.0, bottom: 10),
+                child: TextField(
+                  controller: _passwordController,
+                  obscureText: true,
+                  decoration: InputDecoration(
+                    fillColor: const Color(0xffe72041),
+                    hintText: "Password",
+                    hintStyle: const TextStyle(
+                        color: Colors.white, fontFamily: 'Quicksand'),
+                    filled: true,
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(15),
+                      borderSide:
+                          const BorderSide(width: 3, color: Colors.white),
+                    ),
+                    suffixIcon: IconButton(
+                      onPressed: () {
+                        obscureText:
+                        false;
+                      },
+                      icon: const Icon(
+                        Icons.remove_red_eye_outlined,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+
+              //////////////////////////////////////////Forgot Password
+
+              /*  Container(
             margin: const EdgeInsets.only(right: 20, bottom: 30),
             alignment: Alignment.centerRight,
             child: TextButton(
@@ -183,35 +214,34 @@ class createAccount extends StatelessWidget {
             ),
           ),*/
 
-          SizedBox(
-            width: 350,
-            height: 55,
-            child: TextButton(
-              style: ElevatedButton.styleFrom(
-
-                backgroundColor: Colors.white,
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10)),
-                // side: BorderSide(width: 1.0, color: Color(0xffffffff)),
-              ),
-              onPressed: () {
-                Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => createAccount()),
-                );
-              },
-
-              child: const Text(
-                'Create Account',
-                style: TextStyle(
-                    color: Color(0xffe72041),
-                    fontFamily: 'Quicksand',
-                    fontWeight: FontWeight.w900,
-                    fontSize: 20
+              SizedBox(
+                width: 350,
+                height: 55,
+                child: TextButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.white,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10)),
+                    // side: BorderSide(width: 1.0, color: Color(0xffffffff)),
+                  ),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => createAccount()),
+                    );
+                  },
+                  child: const Text(
+                    'Create Account',
+                    style: TextStyle(
+                        color: Color(0xffe72041),
+                        fontFamily: 'Quicksand',
+                        fontWeight: FontWeight.w900,
+                        fontSize: 20),
+                  ),
                 ),
               ),
-            ),
-          ),
-
+            // ],
+          // ),
         ],
       ),
     );
@@ -239,4 +269,3 @@ class LinePainter extends CustomPainter {
   @override
   bool shouldRepaint(CustomPainter oldDelegate) => false;
 }
-
