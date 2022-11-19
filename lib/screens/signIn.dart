@@ -1,3 +1,4 @@
+import 'package:blood_bank/screens/users.dart';
 import 'package:flutter/material.dart';
 import 'package:blood_bank/screens/navBar.dart';
 
@@ -112,7 +113,7 @@ class signIn extends StatelessWidget {
               ),
               onPressed: () {
                 Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => NavBar()),
+                  MaterialPageRoute(builder: (context) => Users()),
                 );
               },
 
