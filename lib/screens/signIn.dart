@@ -10,7 +10,7 @@ class signIn extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return Scaffold(resizeToAvoidBottomInset: false,
       backgroundColor: const Color(0xffe72041),
       body: Column(
         //   mainAxisAlignment: MainAxisAlignment.center,
@@ -20,20 +20,22 @@ class signIn extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
-                // margin: const EdgeInsets.only(right: 250.0),
-                height: 100.00,
-                width: 200.00,
-                color: const Color(0xffe72041),
-                child: CustomPaint(
-                  foregroundPainter: LinePainter(),
+                height: 200,
+                width: 200,
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage('images/quat.png'),
+                    fit: BoxFit.cover,
+
+                  ),
                 ),
               ),
             ],
           ),
 
+////////////////////////////////////////////////Email input
 
-          ////////////////////////////////////////////////Email input
-          const SizedBox(height: 270.0), /////     create space above the fields
+          const SizedBox(height: 150.0), /////create space above the fields
           Container(
             padding: const EdgeInsets.only(right: 20.0, left: 20.0, bottom: 10),
             child: TextField(
@@ -76,7 +78,6 @@ class signIn extends StatelessWidget {
                     onPressed: () {
                       //obscureText: false;
                     },
-
                     icon: const Icon(Icons.remove_red_eye_outlined, color: Colors.white,),
                   ),
               ),
@@ -174,8 +175,6 @@ class signIn extends StatelessWidget {
               ],
             ),
           ),
-
-
         ],
       ),
     );

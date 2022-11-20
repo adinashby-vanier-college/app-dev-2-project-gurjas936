@@ -16,7 +16,7 @@ class mainScreen extends StatefulWidget {
 class _mainScreenState extends State<mainScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return Scaffold(resizeToAvoidBottomInset: false,
       backgroundColor: const Color(0xffe72041),
       body: Center(
         child: Column(
@@ -27,31 +27,43 @@ class _mainScreenState extends State<mainScreen> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Container(
-                  // margin: const EdgeInsets.only(right: 250.0),
-                  height: 100.00,
-                  width: 200.00,
-                  color: const Color(0xffe72041),
-                  child: CustomPaint(
-                    foregroundPainter: LinePainter(),
+                  height: 200,
+                  width: 200,
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage('images/quat.png'),
+                      fit: BoxFit.cover,
+
+                    ),
                   ),
                 ),
+                // Container(
+                //   // margin: const EdgeInsets.only(right: 250.0),
+                //   height: 100.00,
+                //   width: 200.00,
+                //   color: const Color(0xffe72041),
+                //   child: CustomPaint(
+                //     foregroundPainter: LinePainter(),
+                //   ),
+                // ),
               ],
             ),
 
             Center(
-              child: SizedBox(
                 child: Container(
-                  height: 350.0,
-                  width: 350.0,
+                  height: 300.0,
+                  width: 300.0,
                   margin: const EdgeInsets.only(top: 60),
                   decoration: const BoxDecoration(
                     // color: Colors.cyan,
                     image: DecorationImage(
-                        image: AssetImage('images/logo-removebg-preview.png')),
+                        image: AssetImage('images/logo-removebg-preview.png'),
+                      fit: BoxFit.cover,
+                    ),
                   ),
                 ),
               ),
-            ),
+
 
 /////////////////////////////////////////////          SIGN IN BUTTON
 
@@ -129,7 +141,7 @@ class LinePainter extends CustomPainter {
     var paint = Paint()
       ..color = const Color(0xffe63d59)
       ..style = PaintingStyle.stroke
-      ..strokeWidth = size.width * 1.4;
+      ..strokeWidth = size.width * 1.6;
 
     final arc1 = Path();
     arc1.moveTo(size.width * 0, size.height * 0.4);
