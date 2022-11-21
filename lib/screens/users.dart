@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:blood_bank/screens/donateBlood.dart';
 
 class Users extends StatelessWidget {
   // const Users({Key? key}) : super(key: key);
@@ -450,7 +451,12 @@ class Users extends StatelessWidget {
                                   shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(20)),
                                 ),
-                                onPressed: () {},
+                                onPressed: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(builder: (context) => donateBlood()),
+                                  );
+                                },
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
