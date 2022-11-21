@@ -65,7 +65,7 @@ class Users extends StatelessWidget {
                       title: const Text(
                         'Edit profile',
                         style: TextStyle(
-                          fontSize: 25,
+                          fontSize: 20,
                           color: Color(0xffe72041),
                         ),
                       ),
@@ -75,7 +75,7 @@ class Users extends StatelessWidget {
                       title: const Text(
                         'History',
                         style: TextStyle(
-                          fontSize: 25,
+                          fontSize: 20,
                           color: Color(0xffe72041),
                         ),
                       ),
@@ -85,7 +85,7 @@ class Users extends StatelessWidget {
                       title: const Text(
                         'Feedback',
                         style: TextStyle(
-                          fontSize: 25,
+                          fontSize: 20,
                           color: Color(0xffe72041),
                         ),
                       ),
@@ -95,7 +95,7 @@ class Users extends StatelessWidget {
                       title: const Text(
                         'Settings',
                         style: TextStyle(
-                          fontSize: 25,
+                          fontSize: 20,
                           color: Color(0xffe72041),
                         ),
                       ),
@@ -105,7 +105,7 @@ class Users extends StatelessWidget {
                       title: const Text(
                         'Logout',
                         style: TextStyle(
-                          fontSize: 25,
+                          fontSize: 20,
                           color: Color(0xffe72041),
                         ),
                       ),
