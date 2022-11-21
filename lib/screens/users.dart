@@ -25,7 +25,7 @@ class Users extends StatelessWidget {
                           child: IconButton(
                             onPressed: () =>
                                 _globalKey.currentState!.closeDrawer(),
-                            icon: Icon(Icons.menu),
+                            icon: const Icon(Icons.menu),
                             iconSize: 50,
                           ),
                         ),
@@ -40,7 +40,7 @@ class Users extends StatelessWidget {
                     Container(
                       height: 100,
                       width: 100,
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                         image: DecorationImage(
                           image: AssetImage('images/pp.jpg'),
                           fit: BoxFit.fill,
@@ -49,7 +49,7 @@ class Users extends StatelessWidget {
                       ),
                     ),
                     Container(
-                      child: Text(
+                      child: const Text(
                         'abc',
                         style: TextStyle(
                             fontSize: 25,
@@ -57,12 +57,12 @@ class Users extends StatelessWidget {
                             color: Color(0xffe72041)),
                       ),
                     ),
-                    Divider(
+                    const Divider(
                       thickness: 2,
                       color: Colors.black,
                     ),
                     ListTile(
-                      title: Text(
+                      title: const Text(
                         'Edit profile',
                         style: TextStyle(
                           fontSize: 25,
@@ -72,7 +72,7 @@ class Users extends StatelessWidget {
                       onTap: () {},
                     ),
                     ListTile(
-                      title: Text(
+                      title: const Text(
                         'History',
                         style: TextStyle(
                           fontSize: 25,
@@ -82,7 +82,7 @@ class Users extends StatelessWidget {
                       onTap: () {},
                     ),
                     ListTile(
-                      title: Text(
+                      title: const Text(
                         'Feedback',
                         style: TextStyle(
                           fontSize: 25,
@@ -92,7 +92,7 @@ class Users extends StatelessWidget {
                       onTap: () {},
                     ),
                     ListTile(
-                      title: Text(
+                      title: const Text(
                         'Settings',
                         style: TextStyle(
                           fontSize: 25,
@@ -102,7 +102,7 @@ class Users extends StatelessWidget {
                       onTap: () {},
                     ),
                     ListTile(
-                      title: Text(
+                      title: const Text(
                         'Logout',
                         style: TextStyle(
                           fontSize: 25,
@@ -130,7 +130,7 @@ class Users extends StatelessWidget {
                   Container(
                     height: 260,
                     width: 250,
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                       image: DecorationImage(
                         image: AssetImage('images/quat1.png'),
                         fit: BoxFit.cover,
@@ -148,7 +148,7 @@ class Users extends StatelessWidget {
                               child: Container(
                                 height: 70,
                                 width: 70,
-                                decoration: BoxDecoration(
+                                decoration: const BoxDecoration(
                                   image: DecorationImage(
                                     image: AssetImage('images/pp.jpg'),
                                     fit: BoxFit.cover,
@@ -163,7 +163,7 @@ class Users extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.end,
                               children: [
                                 Container(
-                                  child: Text(
+                                  child: const Text(
                                     'Blood Type:',
                                     style: TextStyle(
                                         fontSize: 20,
@@ -172,7 +172,7 @@ class Users extends StatelessWidget {
                                   ),
                                 ),
                                 Container(
-                                  child: Text(
+                                  child: const Text(
                                     'Age:',
                                     style: TextStyle(
                                         fontSize: 20,
@@ -185,10 +185,10 @@ class Users extends StatelessWidget {
                           ],
                         ),
                         Padding(
-                          padding: EdgeInsets.only(left: 45, bottom: 40),
+                          padding: const EdgeInsets.only(left: 45, bottom: 40),
                           child: Container(
                             alignment: Alignment.centerLeft,
-                            child: Text(
+                            child: const Text(
                               'abc',
                               style: TextStyle(
                                   fontSize: 25,
@@ -215,7 +215,7 @@ class Users extends StatelessWidget {
                         padding: const EdgeInsets.all(8.0),
                         child: Container(
                           alignment: Alignment.centerLeft,
-                          child: Text(
+                          child: const Text(
                             'Blood Camps',
                             style: TextStyle(
                               fontSize: 20,
@@ -225,201 +225,210 @@ class Users extends StatelessWidget {
                         ),
                       ),
                       SizedBox(
-                        height: 100,
+                        height: 110,
                         child: ListView(
                           scrollDirection: Axis.horizontal,
                           children: [
                             Padding(
-                              padding: const EdgeInsets.all(8.0),
+                              padding: const EdgeInsets.all(5.0),
                               child: Container(
                                 width: 320,
                                 decoration: BoxDecoration(
                                   color: Colors.white,
                                   border: Border.all(color: Colors.black),
                                 ),
-                                child: Row(
-                                  children: [
-                                    Container(
-                                      width: 80,
-                                      height: 80,
-                                      decoration: BoxDecoration(
-                                          image: DecorationImage(
-                                        image: AssetImage('images/maps.png'),
-                                      )),
-                                    ),
-                                    Container(
-                                      child: Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Container(
-                                            child: Text(
-                                              'City Hospital',
-                                              style: TextStyle(
-                                                  fontSize: 20,
-                                                  color: Colors.black),
-                                            ),
-                                          ),
-                                          Container(
-                                            child: Text(
-                                              '928 Rue Veniard Saint Laurent',
-                                              style: TextStyle(
-                                                  fontSize: 15,
-                                                  color: Colors.black),
-                                            ),
-                                          ),
-                                          Container(
-                                            child: Text(
-                                              'H4R 1L5',
-                                              style: TextStyle(
-                                                  fontSize: 15,
-                                                  color: Colors.black),
-                                            ),
-                                          ),
-                                          Container(
-                                            child: Text(
-                                              '514-999-9999',
-                                              style: TextStyle(
-                                                  fontSize: 15,
-                                                  color: Colors.black),
-                                            ),
-                                          ),
-                                        ],
+                                child: TextButton(
+                                  onPressed: (){},
+                                  child: Row(
+                                    children: [
+                                      Container(
+                                        width: 80,
+                                        height: 80,
+                                        decoration: const BoxDecoration(
+                                            image: DecorationImage(
+                                          image: AssetImage('images/maps.png'),
+                                        )),
                                       ),
-                                    ),
-                                  ],
+                                      Container(
+                                        child: Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Container(
+                                              child: const Text(
+                                                'City Hospital',
+                                                style: TextStyle(
+                                                    fontSize: 20,
+                                                    color: Colors.black),
+                                              ),
+                                            ),
+                                            Container(
+                                              child: const Text(
+                                                '928 Rue Veniard Saint Laurent',
+                                                style: TextStyle(
+                                                    fontSize: 15,
+                                                    color: Colors.black),
+                                              ),
+                                            ),
+                                            Container(
+                                              child: const Text(
+                                                'H4R 1L5',
+                                                style: TextStyle(
+                                                    fontSize: 15,
+                                                    color: Colors.black),
+                                              ),
+                                            ),
+                                            Container(
+                                              child: const Text(
+                                                '514-999-9999',
+                                                style: TextStyle(
+                                                    fontSize: 15,
+                                                    color: Colors.black),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ],
+                                  ),
                                 ),
                               ),
                             ),
                             Padding(
-                              padding: const EdgeInsets.all(8.0),
+                              padding: const EdgeInsets.all(5.0),
                               child: Container(
                                 width: 320,
                                 decoration: BoxDecoration(
                                   color: Colors.white,
                                   border: Border.all(color: Colors.black),
                                 ),
-                                child: Row(
-                                  children: [
-                                    Container(
-                                      width: 80,
-                                      height: 80,
-                                      decoration: BoxDecoration(
-                                          image: DecorationImage(
-                                        image: AssetImage('images/maps.png'),
-                                      )),
-                                    ),
-                                    Container(
-                                      child: Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Container(
-                                            child: Text(
-                                              'City Hospital',
-                                              style: TextStyle(
-                                                  fontSize: 20,
-                                                  color: Colors.black),
-                                            ),
-                                          ),
-                                          Container(
-                                            child: Text(
-                                              '928 Rue Veniard Saint Laurent',
-                                              style: TextStyle(
-                                                  fontSize: 15,
-                                                  color: Colors.black),
-                                            ),
-                                          ),
-                                          Container(
-                                            child: Text(
-                                              'H4R 1L5',
-                                              style: TextStyle(
-                                                  fontSize: 15,
-                                                  color: Colors.black),
-                                            ),
-                                          ),
-                                          Container(
-                                            child: Text(
-                                              '514-999-9999',
-                                              style: TextStyle(
-                                                  fontSize: 15,
-                                                  color: Colors.black),
-                                            ),
-                                          ),
-                                        ],
+                                child: TextButton(
+                                  onPressed: () {},
+                                  child: Row(
+                                    children: [
+                                      Container(
+                                        width: 80,
+                                        height: 80,
+                                        decoration: const BoxDecoration(
+                                            image: DecorationImage(
+                                          image: AssetImage('images/maps.png'),
+                                        )),
                                       ),
-                                    ),
-                                  ],
+                                      Container(
+                                        child: Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Container(
+                                              child: const Text(
+                                                'City Hospital',
+                                                style: TextStyle(
+                                                    fontSize: 20,
+                                                    color: Colors.black),
+                                              ),
+                                            ),
+                                            Container(
+                                              child: const Text(
+                                                '928 Rue Veniard Saint Laurent',
+                                                style: TextStyle(
+                                                    fontSize: 15,
+                                                    color: Colors.black),
+                                              ),
+                                            ),
+                                            Container(
+                                              child: const Text(
+                                                'H4R 1L5',
+                                                style: TextStyle(
+                                                    fontSize: 15,
+                                                    color: Colors.black),
+                                              ),
+                                            ),
+                                            Container(
+                                              child: const Text(
+                                                '514-999-9999',
+                                                style: TextStyle(
+                                                    fontSize: 15,
+                                                    color: Colors.black),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ],
+                                  ),
                                 ),
                               ),
                             ),
                             Padding(
-                              padding: const EdgeInsets.all(8.0),
+                              padding: const EdgeInsets.all(5.0),
                               child: Container(
                                 width: 320,
                                 decoration: BoxDecoration(
                                   color: Colors.white,
                                   border: Border.all(color: Colors.black),
                                 ),
-                                child: Row(
-                                  children: [
-                                    Container(
-                                      width: 80,
-                                      height: 80,
-                                      decoration: BoxDecoration(
-                                          image: DecorationImage(
-                                        image: AssetImage('images/maps.png'),
-                                      )),
-                                    ),
-                                    Container(
-                                      child: Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Container(
-                                            child: Text(
-                                              'City Hospital',
-                                              style: TextStyle(
-                                                  fontSize: 20,
-                                                  color: Colors.black),
-                                            ),
-                                          ),
-                                          Container(
-                                            child: Text(
-                                              '928 Rue Veniard Saint Laurent',
-                                              style: TextStyle(
-                                                  fontSize: 15,
-                                                  color: Colors.black),
-                                            ),
-                                          ),
-                                          Container(
-                                            child: Text(
-                                              'H4R 1L5',
-                                              style: TextStyle(
-                                                  fontSize: 15,
-                                                  color: Colors.black),
-                                            ),
-                                          ),
-                                          Container(
-                                            child: Text(
-                                              '514-999-9999',
-                                              style: TextStyle(
-                                                  fontSize: 15,
-                                                  color: Colors.black),
-                                            ),
-                                          ),
-                                        ],
+                                child: TextButton(
+                                  onPressed: () {},
+                                  child: Row(
+                                    children: [
+                                      Container(
+                                        width: 80,
+                                        height: 80,
+                                        decoration: const BoxDecoration(
+                                            image: DecorationImage(
+                                          image: AssetImage('images/maps.png'),
+                                        )),
                                       ),
-                                    ),
-                                  ],
+                                      Container(
+                                        child: Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Container(
+                                              child: const Text(
+                                                'City Hospital',
+                                                style: TextStyle(
+                                                    fontSize: 20,
+                                                    color: Colors.black),
+                                              ),
+                                            ),
+                                            Container(
+                                              child: const Text(
+                                                '928 Rue Veniard Saint Laurent',
+                                                style: TextStyle(
+                                                    fontSize: 15,
+                                                    color: Colors.black),
+                                              ),
+                                            ),
+                                            Container(
+                                              child: const Text(
+                                                'H4R 1L5',
+                                                style: TextStyle(
+                                                    fontSize: 15,
+                                                    color: Colors.black),
+                                              ),
+                                            ),
+                                            Container(
+                                              child: const Text(
+                                                '514-999-9999',
+                                                style: TextStyle(
+                                                    fontSize: 15,
+                                                    color: Colors.black),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ],
+                                  ),
                                 ),
                               ),
                             )
                           ],
                         ),
                       ),
-                      Padding(
-                        padding: const EdgeInsets.all(12.0),
+                      const Padding(
+                        padding: EdgeInsets.all(12.0),
                         child: Divider(
                           thickness: 5,
                           color: Color(0xffe72041),
@@ -448,7 +457,7 @@ class Users extends StatelessWidget {
                                     Container(
                                       width: 50,
                                       height: 50,
-                                      decoration: BoxDecoration(
+                                      decoration: const BoxDecoration(
                                         image: DecorationImage(
                                           image: AssetImage(
                                             'images/bloodDrop.png',
@@ -456,11 +465,11 @@ class Users extends StatelessWidget {
                                         ),
                                       ),
                                     ),
-                                    SizedBox(
+                                    const SizedBox(
                                       height: 10,
                                     ),
                                     Container(
-                                      child: Text(
+                                      child: const Text(
                                         'Donate Blood',
                                         style: TextStyle(
                                             color: Color(0xffe72041),
@@ -491,7 +500,7 @@ class Users extends StatelessWidget {
                                     Container(
                                       width: 50,
                                       height: 50,
-                                      decoration: BoxDecoration(
+                                      decoration: const BoxDecoration(
                                         image: DecorationImage(
                                           image: AssetImage(
                                             'images/search.png',
@@ -499,11 +508,11 @@ class Users extends StatelessWidget {
                                         ),
                                       ),
                                     ),
-                                    SizedBox(
+                                    const SizedBox(
                                       height: 10,
                                     ),
                                     Container(
-                                      child: Text(
+                                      child: const Text(
                                         'Find a Donor',
                                         style: TextStyle(
                                             color: Color(0xffe72041),
@@ -521,7 +530,7 @@ class Users extends StatelessWidget {
 
                       ////////////////////////////E M E R G E N C Y
 
-                      SizedBox(
+                      const SizedBox(
                         height: 20,
                       ),
 
@@ -530,7 +539,7 @@ class Users extends StatelessWidget {
                         height: 70,
                         child: TextButton(
                           style: TextButton.styleFrom(
-                            backgroundColor: Color(0xffe72041),
+                            backgroundColor: const Color(0xffe72041),
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(20)),
                           ),
@@ -542,7 +551,7 @@ class Users extends StatelessWidget {
                               Container(
                                 width: 50,
                                 height: 50,
-                                decoration: BoxDecoration(
+                                decoration: const BoxDecoration(
                                   image: DecorationImage(
                                     image: AssetImage(
                                       'images/ambulance.png',
@@ -550,11 +559,11 @@ class Users extends StatelessWidget {
                                   ),
                                 ),
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 width: 20,
                               ),
                               Container(
-                                child: Text(
+                                child: const Text(
                                   'Call Emergency',
                                   style: TextStyle(
                                       color: Colors.white,
@@ -581,7 +590,7 @@ class Users extends StatelessWidget {
           padding: const EdgeInsets.only(top: 30.0),
           child: IconButton(
             onPressed: () => _globalKey.currentState!.openDrawer(),
-            icon: Icon(Icons.menu),
+            icon: const Icon(Icons.menu),
             iconSize: 50,
           ),
         )
