@@ -29,23 +29,15 @@ class _mainScreenState extends State<mainScreen> {
                 Container(
                   height: 200,
                   width: 200,
+                  alignment: Alignment.topLeft,
                   decoration: BoxDecoration(
                     image: DecorationImage(
                       image: AssetImage('images/quat.png'),
-                      fit: BoxFit.cover,
+                      fit: BoxFit.contain,
 
                     ),
                   ),
                 ),
-                // Container(
-                //   // margin: const EdgeInsets.only(right: 250.0),
-                //   height: 100.00,
-                //   width: 200.00,
-                //   color: const Color(0xffe72041),
-                //   child: CustomPaint(
-                //     foregroundPainter: LinePainter(),
-                //   ),
-                // ),
               ],
             ),
 

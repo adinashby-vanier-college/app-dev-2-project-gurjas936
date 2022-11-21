@@ -52,15 +52,15 @@ class _createAccount extends State<createAccount> {
                   Column(
                     children: [
                       Container(
-                            height: 200.0,
-                            width: 200.0,
-                            decoration: const BoxDecoration(
-                              // color: Colors.cyan,
-                              image: DecorationImage(
-                                  image: AssetImage(
-                                      'images/logo-removebg-preview.png'),
+                        height: 200.0,
+                        width: 200.0,
+                        decoration: const BoxDecoration(
+                          // color: Colors.cyan,
+                          image: DecorationImage(
+                              image: AssetImage(
+                                  'images/logo-removebg-preview.png'),
                               fit: BoxFit.cover),
-                            ),
+                        ),
                       ),
 
                       const SizedBox(height: 10.0),
@@ -177,7 +177,6 @@ class _createAccount extends State<createAccount> {
                       ),
 
                       ///////////////////////////////////// Password Field
-
                       Container(
                         padding: const EdgeInsets.only(
                             right: 20.0, left: 20.0, bottom: 10),
@@ -210,7 +209,6 @@ class _createAccount extends State<createAccount> {
                       ),
 
                       //////////////////////////////////////////Forgot Password
-
                       SizedBox(
                         width: 350,
                         height: 55,
@@ -249,26 +247,4 @@ class _createAccount extends State<createAccount> {
       ),
     );
   }
-}
-
-class LinePainter extends CustomPainter {
-  @override
-  void paint(Canvas canvas, Size size) {
-    var paint = Paint()
-      ..color = const Color(0xffe63d59)
-      ..style = PaintingStyle.stroke
-      ..strokeWidth = size.width * 1.6;
-
-    final arc1 = Path();
-    arc1.moveTo(size.width * 0, size.height * 0.4);
-    arc1.arcToPoint(
-      Offset(size.width * 0.4, size.height * 0),
-      radius: const Radius.circular(30),
-      clockwise: false,
-    );
-    canvas.drawPath(arc1, paint);
-  }
-
-  @override
-  bool shouldRepaint(CustomPainter oldDelegate) => false;
 }
