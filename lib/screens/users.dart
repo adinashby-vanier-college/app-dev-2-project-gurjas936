@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:blood_bank/screens/donateBlood.dart';
+class Users extends StatefulWidget {
+  const Users({Key? key}) : super(key: key);
 
-class Users extends StatelessWidget {
-  // const Users({Key? key}) : super(key: key);
+  @override
+  State<Users> createState() => _UsersState();
+}
+
+class _UsersState extends State<Users> {
   GlobalKey<ScaffoldState> _globalKey = GlobalKey<ScaffoldState>();
+  bool value = true;
 
   @override
   Widget build(BuildContext context) {
@@ -155,7 +161,7 @@ class Users extends StatelessWidget {
                                     fit: BoxFit.cover,
                                   ),
                                   borderRadius:
-                                      BorderRadius.all(Radius.circular(60.0)),
+                                  BorderRadius.all(Radius.circular(60.0)),
                                 ),
                               ),
                             ),
@@ -247,13 +253,13 @@ class Users extends StatelessWidget {
                                         height: 80,
                                         decoration: const BoxDecoration(
                                             image: DecorationImage(
-                                          image: AssetImage('images/maps.png'),
-                                        )),
+                                              image: AssetImage('images/maps.png'),
+                                            )),
                                       ),
                                       Container(
                                         child: Column(
                                           crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                                          CrossAxisAlignment.start,
                                           children: [
                                             Container(
                                               child: const Text(
@@ -312,13 +318,13 @@ class Users extends StatelessWidget {
                                         height: 80,
                                         decoration: const BoxDecoration(
                                             image: DecorationImage(
-                                          image: AssetImage('images/maps.png'),
-                                        )),
+                                              image: AssetImage('images/maps.png'),
+                                            )),
                                       ),
                                       Container(
                                         child: Column(
                                           crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                                          CrossAxisAlignment.start,
                                           children: [
                                             Container(
                                               child: const Text(
@@ -377,13 +383,13 @@ class Users extends StatelessWidget {
                                         height: 80,
                                         decoration: const BoxDecoration(
                                             image: DecorationImage(
-                                          image: AssetImage('images/maps.png'),
-                                        )),
+                                              image: AssetImage('images/maps.png'),
+                                            )),
                                       ),
                                       Container(
                                         child: Column(
                                           crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                                          CrossAxisAlignment.start,
                                           children: [
                                             Container(
                                               child: const Text(
@@ -438,107 +444,151 @@ class Users extends StatelessWidget {
 
                       ////////////////////////////////////////// two big buttons
                       Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            Container(
-                              width: 150,
-                              height: 150,
-                              child: TextButton(
-                                style: TextButton.styleFrom(
-                                  backgroundColor: Colors.white,
-                                  side: const BorderSide(
-                                      width: 5, color: Color(0xffe72041)),
-                                  shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(20)),
-                                ),
-                                onPressed: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(builder: (context) => donateBlood()),
-                                  );
-                                },
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Container(
-                                      width: 50,
-                                      height: 50,
-                                      decoration: const BoxDecoration(
-                                        image: DecorationImage(
-                                          image: AssetImage(
-                                            'images/bloodDrop.png',
-                                          ),
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Container(
+                            width: 150,
+                            height: 150,
+                            child: TextButton(
+                              style: TextButton.styleFrom(
+                                backgroundColor: Colors.white,
+                                side: const BorderSide(
+                                    width: 5, color: Color(0xffe72041)),
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(20)),
+                              ),
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(builder: (context) => donateBlood()),
+                                );
+                              },
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Container(
+                                    width: 50,
+                                    height: 50,
+                                    decoration: const BoxDecoration(
+                                      image: DecorationImage(
+                                        image: AssetImage(
+                                          'images/bloodDrop.png',
                                         ),
                                       ),
                                     ),
-                                    const SizedBox(
-                                      height: 10,
+                                  ),
+                                  const SizedBox(
+                                    height: 10,
+                                  ),
+                                  Container(
+                                    child: const Text(
+                                      'Donate Blood',
+                                      style: TextStyle(
+                                          color: Color(0xffe72041),
+                                          fontFamily: 'Quicksand',
+                                          fontWeight: FontWeight.w900,
+                                          fontSize: 22),
                                     ),
-                                    Container(
-                                      child: const Text(
-                                        'Donate Blood',
-                                        style: TextStyle(
-                                            color: Color(0xffe72041),
-                                            fontFamily: 'Quicksand',
-                                            fontWeight: FontWeight.w900,
-                                            fontSize: 22),
-                                      ),
-                                    ),
-                                  ],
-                                ),
+                                  ),
+                                ],
                               ),
                             ),
-                            Container(
-                              width: 150,
-                              height: 150,
-                              child: TextButton(
-                                style: TextButton.styleFrom(
-                                  backgroundColor: Colors.white,
-                                  side: const BorderSide(
-                                      width: 5, color: Color(0xffe72041)),
-                                  shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(20)),
-                                ),
-                                onPressed: () {},
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Container(
-                                      width: 50,
-                                      height: 50,
-                                      decoration: const BoxDecoration(
-                                        image: DecorationImage(
-                                          image: AssetImage(
-                                            'images/search.png',
-                                          ),
+                          ),
+                          Container(
+                            width: 150,
+                            height: 150,
+                            child: TextButton(
+                              style: TextButton.styleFrom(
+                                backgroundColor: Colors.white,
+                                side: const BorderSide(
+                                    width: 5, color: Color(0xffe72041)),
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(20)),
+                              ),
+                              onPressed: () {},
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Container(
+                                    width: 50,
+                                    height: 50,
+                                    decoration: const BoxDecoration(
+                                      image: DecorationImage(
+                                        image: AssetImage(
+                                          'images/search.png',
                                         ),
                                       ),
                                     ),
-                                    const SizedBox(
-                                      height: 10,
+                                  ),
+                                  const SizedBox(
+                                    height: 10,
+                                  ),
+                                  Container(
+                                    child: const Text(
+                                      'Find a Donor',
+                                      style: TextStyle(
+                                          color: Color(0xffe72041),
+                                          fontFamily: 'Quicksand',
+                                          fontWeight: FontWeight.w900,
+                                          fontSize: 22),
                                     ),
-                                    Container(
-                                      child: const Text(
-                                        'Find a Donor',
-                                        style: TextStyle(
-                                            color: Color(0xffe72041),
-                                            fontFamily: 'Quicksand',
-                                            fontWeight: FontWeight.w900,
-                                            fontSize: 22),
-                                      ),
-                                    ),
-                                  ],
-                                ),
+                                  ),
+                                ],
                               ),
                             ),
-                          ],
-                        ),
-
-                      ////////////////////////////E M E R G E N C Y
+                          ),
+                        ],
+                      ),
+//////////////////////////////////////////////////          E M E R G E N C Y
 
                       const SizedBox(
                         height: 20,
                       ),
+//////////////////////////////////////////  T O G G L E    S W I T C H   /////////
+                      Container(
+                        width: 330,
+                        height: 70,
+                        decoration: BoxDecoration(
+                          border: Border.all(color: Color(0xffe72041), width: 5),
+                          borderRadius: BorderRadius.circular(20),
+
+
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.all(12.0),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text("Active to donate",
+                              style: TextStyle(
+                                fontSize: 20,
+                                color: Color(0xffe72041),
+                                fontWeight: FontWeight.bold
+                              ),),
+
+                              Transform.scale(
+                                scale: 1.5,
+                                child: Container(
+
+                                  child: Switch.adaptive(
+                                    activeColor: Color(0xffe72041),
+                                    value: value,
+
+                                    onChanged: (value){
+                                      setState(()=>this.value = value);
+                                      print(value);
+                                    }
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+
 
                       Container(
                         width: 300,
@@ -602,5 +652,4 @@ class Users extends StatelessWidget {
         )
       ]),
     );
-  }
-}
+  }}
