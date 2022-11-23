@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:blood_bank/screens/donateBlood.dart';
 import 'package:blood_bank/screens/editProfile.dart';
+
+import 'feedback.dart';
 class Users extends StatefulWidget {
   String name;
   Users({Key? key, required this.name}) : super(key: key);
@@ -95,7 +97,10 @@ class _UsersState extends State<Users> {
                           color: Color(0xffe72041),
                         ),
                       ),
-                      onTap: () {},
+                      onTap: () {
+
+
+                      },
                     ),
                     ListTile(
                       title: const Text(
@@ -105,8 +110,12 @@ class _UsersState extends State<Users> {
                           color: Color(0xffe72041),
                         ),
                       ),
-                      onTap: () {},
-                    ),
+                      onTap: () {
+                        Navigator.pop(context);
+                        Navigator.push(context, new MaterialPageRoute(builder: (
+                            context) => new feedback()));
+                      }
+    ),
                     ListTile(
                       title: const Text(
                         'Settings',
