@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:blood_bank/screens/donateBlood.dart';
 import 'package:blood_bank/screens/editProfile.dart';
 class Users extends StatefulWidget {
-  const Users({Key? key}) : super(key: key);
+  String name;
+  Users({Key? key, required this.name}) : super(key: key);
 
   @override
   State<Users> createState() => _UsersState();
@@ -11,6 +12,7 @@ class Users extends StatefulWidget {
 class _UsersState extends State<Users> {
   GlobalKey<ScaffoldState> _globalKey = GlobalKey<ScaffoldState>();
   bool value = true;
+  // Users usersObject; _UsersState(this.usersObject);
 
   @override
   Widget build(BuildContext context) {
@@ -198,12 +200,15 @@ class _UsersState extends State<Users> {
                             ),
                           ],
                         ),
+
+//////////////////////////////////////                        // U S E R     N A M E
+
+
                         Padding(
                           padding: const EdgeInsets.only(left: 45, bottom: 40),
                           child: Container(
                             alignment: Alignment.centerLeft,
-                            child: const Text(
-                              'abc',
+                            child: Text(widget.name,
                               style: TextStyle(
                                   fontSize: 25,
                                   fontWeight: FontWeight.w900,

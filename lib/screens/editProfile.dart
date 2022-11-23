@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+
+import 'users.dart';
 //import 'package:settings_ui/pages/settings.dart';
 
 class SettingsUI extends StatelessWidget {
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -13,12 +16,15 @@ class SettingsUI extends StatelessWidget {
 }
 
 class EditProfilePage extends StatefulWidget {
+
+
   @override
   _EditProfilePageState createState() => _EditProfilePageState();
 }
 
 class _EditProfilePageState extends State<EditProfilePage> {
   bool showPassword = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,7 +36,12 @@ class _EditProfilePageState extends State<EditProfilePage> {
             Icons.arrow_back,
             color: Colors.red,
           ),
-          onPressed: () {},
+          onPressed: () {
+            // Navigator.push(
+            //   context,
+            //   MaterialPageRoute(builder: (context) => Users()),
+            // );
+          },
         ),
         actions: [
           IconButton(
@@ -79,8 +90,9 @@ class _EditProfilePageState extends State<EditProfilePage> {
                           ],
                           shape: BoxShape.circle,
                           image: DecorationImage(
-                              fit: BoxFit.cover,
-                            image: AssetImage('images/pp.jpg'),)),
+                            fit: BoxFit.cover,
+                            image: AssetImage('images/pp.jpg'),
+                          )),
                     ),
                     Positioned(
                         bottom: 0,
@@ -114,10 +126,10 @@ class _EditProfilePageState extends State<EditProfilePage> {
               SizedBox(
                 height: 35,
               ),
-             Row(
+              Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                 /* OutlineButton(
+                  /* OutlineButton(
                     padding: EdgeInsets.symmetric(horizontal: 50),
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(20)),
@@ -128,7 +140,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                             letterSpacing: 2.2,
                             color: Colors.black)),
                   ),*/
-                 /* RaisedButton(
+                  /* RaisedButton(
                     onPressed: () {},
                     color: Colors.green,
                     padding: EdgeInsets.symmetric(horizontal: 50),
@@ -161,16 +173,16 @@ class _EditProfilePageState extends State<EditProfilePage> {
         decoration: InputDecoration(
             suffixIcon: isPasswordTextField
                 ? IconButton(
-              onPressed: () {
-                setState(() {
-                  showPassword = !showPassword;
-                });
-              },
-              icon: Icon(
-                Icons.remove_red_eye,
-                color: Colors.red,
-              ),
-            )
+                    onPressed: () {
+                      setState(() {
+                        showPassword = !showPassword;
+                      });
+                    },
+                    icon: Icon(
+                      Icons.remove_red_eye,
+                      color: Colors.red,
+                    ),
+                  )
                 : null,
             contentPadding: EdgeInsets.only(bottom: 3),
             labelText: labelText,
