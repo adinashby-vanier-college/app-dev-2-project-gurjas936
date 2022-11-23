@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:blood_bank/screens/editProfile.dart';
 
 class NavBar extends StatelessWidget {
   @override
@@ -32,7 +32,11 @@ class NavBar extends StatelessWidget {
             ListTile(
               leading: Icon(Icons.person),
               title: Text('Edit Profile'),
-              onTap: () => null,
+              onTap: () => {
+              Navigator.push(context,
+              MaterialPageRoute(builder: (context) => EditProfilePage()),
+              ),
+            },
             ),
             ListTile(
               leading: Icon(Icons.history),
