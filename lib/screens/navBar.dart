@@ -32,11 +32,12 @@ class NavBar extends StatelessWidget {
             ListTile(
               leading: Icon(Icons.person),
               title: Text('Edit Profile'),
-              onTap: () => {
-              Navigator.push(context,
-              MaterialPageRoute(builder: (context) => EditProfilePage()),
-              ),
-            },
+              onTap: ()
+                {
+                  Navigator.pop(context);
+                  Navigator.push(context, new MaterialPageRoute(builder: (context)=>new EditProfilePage()));
+
+                },
             ),
             ListTile(
               leading: Icon(Icons.history),

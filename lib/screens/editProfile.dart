@@ -28,7 +28,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
         leading: IconButton(
           icon: Icon(
             Icons.arrow_back,
-            color: Colors.green,
+            color: Colors.red,
           ),
           onPressed: () {},
         ),
@@ -74,15 +74,13 @@ class _EditProfilePageState extends State<EditProfilePage> {
                             BoxShadow(
                                 spreadRadius: 2,
                                 blurRadius: 10,
-                                color: Colors.black.withOpacity(0.1),
+                                color: Colors.red.withOpacity(0.1),
                                 offset: Offset(0, 10))
                           ],
                           shape: BoxShape.circle,
                           image: DecorationImage(
                               fit: BoxFit.cover,
-                              image: NetworkImage(
-                                "https://images.pexels.com/photos/3307758/pexels-photo-3307758.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=250",
-                              ))),
+                            image: AssetImage('images/pp.jpg'),)),
                     ),
                     Positioned(
                         bottom: 0,
@@ -96,7 +94,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                               width: 4,
                               color: Theme.of(context).scaffoldBackgroundColor,
                             ),
-                            color: Colors.green,
+                            color: Colors.red,
                           ),
                           child: Icon(
                             Icons.edit,
@@ -109,10 +107,10 @@ class _EditProfilePageState extends State<EditProfilePage> {
               SizedBox(
                 height: 35,
               ),
-              buildTextField("Full Name", "Dor Alex", false),
-              buildTextField("E-mail", "alexd@gmail.com", false),
+              buildTextField("Full Name", "abc", false),
+              buildTextField("E-mail", "abc@gmail.com", false),
               buildTextField("Password", "********", true),
-              buildTextField("Location", "TLV, Israel", false),
+              buildTextField("Location", "Montreal,Canada", false),
               SizedBox(
                 height: 35,
               ),
@@ -170,7 +168,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
               },
               icon: Icon(
                 Icons.remove_red_eye,
-                color: Colors.grey,
+                color: Colors.red,
               ),
             )
                 : null,
@@ -181,7 +179,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
             hintStyle: TextStyle(
               fontSize: 16,
               fontWeight: FontWeight.bold,
-              color: Colors.black,
+              color: Colors.red,
             )),
       ),
     );

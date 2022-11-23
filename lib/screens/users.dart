@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:blood_bank/screens/donateBlood.dart';
+import 'package:blood_bank/screens/editProfile.dart';
 class Users extends StatefulWidget {
   const Users({Key? key}) : super(key: key);
 
@@ -76,7 +77,13 @@ class _UsersState extends State<Users> {
                           color: Color(0xffe72041),
                         ),
                       ),
-                      onTap: () {},
+                      onTap: () {
+
+                          Navigator.pop(context);
+                          Navigator.push(context, new MaterialPageRoute(builder: (context)=>new EditProfilePage()));
+
+
+                      },
                     ),
                     ListTile(
                       title: const Text(
