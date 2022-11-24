@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:blood_bank/screens/editProfile.dart';
-
+//
 class NavBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

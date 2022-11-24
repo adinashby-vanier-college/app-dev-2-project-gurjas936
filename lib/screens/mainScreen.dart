@@ -5,7 +5,7 @@ import 'package:blood_bank/screens/createAccount.dart';
 //import 'package:flutter_social_button/flutter_social_button.dart';
 //import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 //import 'createAccount.dart';
-
+//
 class mainScreen extends StatefulWidget {
   const mainScreen({Key? key}) : super(key: key);
 
