@@ -111,7 +111,7 @@ class signIn extends StatelessWidget {
               ),
               onPressed: () {
                 Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => Users(name: 'name',)),
+                  MaterialPageRoute(builder: (context) => Users()),
                 );
               },
 
