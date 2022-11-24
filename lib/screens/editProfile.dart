@@ -32,15 +32,16 @@ class _EditProfilePageState extends State<EditProfilePage> {
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         elevation: 1,
         leading: IconButton(
+
           icon: Icon(
             Icons.arrow_back,
             color: Colors.red,
           ),
           onPressed: () {
-            // Navigator.push(
-            //   context,
-            //   MaterialPageRoute(builder: (context) => Users()),
-            // );
+             Navigator.push(
+               context,
+               MaterialPageRoute(builder: (context) => Users(name: '',)),
+             );
           },
         ),
         actions: [
@@ -123,38 +124,35 @@ class _EditProfilePageState extends State<EditProfilePage> {
               buildTextField("E-mail", "abc@gmail.com", false),
               buildTextField("Password", "********", true),
               buildTextField("Location", "Montreal,Canada", false),
+              buildTextField("Blood Group", "o+", false),
               SizedBox(
                 height: 35,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  /* OutlineButton(
-                    padding: EdgeInsets.symmetric(horizontal: 50),
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20)),
-                    onPressed: () {},
-                    child: Text("CANCEL",
-                        style: TextStyle(
-                            fontSize: 14,
-                            letterSpacing: 2.2,
-                            color: Colors.black)),
-                  ),*/
-                  /* RaisedButton(
-                    onPressed: () {},
-                    color: Colors.green,
-                    padding: EdgeInsets.symmetric(horizontal: 50),
-                    elevation: 2,
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20)),
-                    child: Text(
-                      "SAVE",
-                      style: TextStyle(
-                          fontSize: 14,
-                          letterSpacing: 2.2,
-                          color: Colors.white),
+                  ElevatedButton(
+                    child: Text('CANCEL'),
+                    onPressed: () {
+                      // print('Pressed');
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.red,
+
                     ),
-                  )*/
+                  ),
+
+                  ElevatedButton(
+                    child: Text('UPDATE'),
+                    onPressed: () {
+                     // print('Pressed');
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.red,
+
+                    ),
+                  )
+
                 ],
               )
             ],
