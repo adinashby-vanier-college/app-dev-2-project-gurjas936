@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:blood_bank/screens/navBar.dart';
 
+import 'users.dart';
+
 void main() {
   runApp(const createAccount());
 }
@@ -68,12 +70,13 @@ class _createAccount extends State<createAccount> {
                       Container(
                         padding: const EdgeInsets.only(
                             right: 20.0, left: 20.0, bottom: 10),
-                        child: TextField(
+                        child: TextFormField(
                           controller: _name,
                           decoration: InputDecoration(
                               fillColor: const Color(0xffe72041),
-                              hintText: "Name",
-                              hintStyle: const TextStyle(
+                              labelText: "Name",
+                              border: OutlineInputBorder(),
+                              labelStyle: const TextStyle(
                                   color: Colors.white, fontFamily: 'Quicksand'),
                               filled: true,
                               enabledBorder: OutlineInputBorder(
@@ -223,7 +226,7 @@ class _createAccount extends State<createAccount> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => createAccount()),
+                                  builder: (context) => Users(name: _name.text,)),
                             );
                           },
                           child: const Text(

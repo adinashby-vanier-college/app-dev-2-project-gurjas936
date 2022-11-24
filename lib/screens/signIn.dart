@@ -1,16 +1,47 @@
 import 'package:blood_bank/screens/users.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:blood_bank/screens/navBar.dart';
-//
-class signIn extends StatelessWidget {
-  // const signIn({Key? key}) : super(key: key);
-  final _textController = TextEditingController();
 
-  final _passwordController = TextEditingController();
+
+void main() async {
+
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  runApp(signIn());
+}
+
+
+class signIn extends StatefulWidget {
+  @override
+  State<signIn> createState() => _signInState();
+}
+
+final _emailController = TextEditingController();
+
+final _passwordController = TextEditingController();
+
+class _signInState extends State<signIn> {
+  final userNameController = TextEditingController();
+  final userAgeController = TextEditingController();
+  final userSalaryController = TextEditingController();
+
+  late FirebaseAuth auth;
+
+  @override
+  void initState() {
+    super.initState();
+    auth = FirebaseAuth.instance;
+  }
+
+  // const signIn({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(resizeToAvoidBottomInset: false,
+    return Scaffold(
+      resizeToAvoidBottomInset: false,
       backgroundColor: const Color(0xffe72041),
       body: Column(
         //   mainAxisAlignment: MainAxisAlignment.center,
@@ -26,7 +57,6 @@ class signIn extends StatelessWidget {
                   image: DecorationImage(
                     image: AssetImage('images/quat.png'),
                     fit: BoxFit.cover,
-
                   ),
                 ),
               ),
@@ -37,12 +67,13 @@ class signIn extends StatelessWidget {
           const SizedBox(height: 150.0), /////create space above the fields
           Container(
             padding: const EdgeInsets.only(right: 20.0, left: 20.0, bottom: 10),
-            child: TextField(
-              controller: _textController,
+            child: TextFormField(
+              controller: _emailController,
               decoration: InputDecoration(
                   fillColor: const Color(0xffe72041),
                   hintText: "Email Id",
-                  hintStyle: const TextStyle(color: Colors.white, fontFamily: 'Quicksand'),
+                  hintStyle: const TextStyle(
+                      color: Colors.white, fontFamily: 'Quicksand'),
                   filled: true,
                   enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(15),
@@ -50,9 +81,12 @@ class signIn extends StatelessWidget {
                   ),
                   suffixIcon: IconButton(
                     onPressed: () {
-                      _textController.clear();
+                      _emailController.clear();
                     },
-                    icon: const Icon(Icons.clear, color: Colors.white,),
+                    icon: const Icon(
+                      Icons.clear,
+                      color: Colors.white,
+                    ),
                   )),
             ),
           ),
@@ -60,13 +94,14 @@ class signIn extends StatelessWidget {
           ///////////////////////////////////// Password Field
           Container(
             padding: const EdgeInsets.only(right: 20.0, left: 20.0, bottom: 10),
-            child: TextField(
+            child: TextFormField(
               controller: _passwordController,
-              obscureText: true,
+              // obscureText: true,
               decoration: InputDecoration(
                 fillColor: const Color(0xffe72041),
                 hintText: "Password",
-                hintStyle: const TextStyle(color: Colors.white, fontFamily: 'Quicksand'),
+                hintStyle: const TextStyle(
+                    color: Colors.white, fontFamily: 'Quicksand'),
                 filled: true,
                 enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(15),
@@ -76,7 +111,10 @@ class signIn extends StatelessWidget {
                   onPressed: () {
                     //obscureText: false;
                   },
-                  icon: const Icon(Icons.remove_red_eye_outlined, color: Colors.white,),
+                  icon: const Icon(
+                    Icons.remove_red_eye_outlined,
+                    color: Colors.white,
+                  ),
                 ),
               ),
             ),
@@ -102,72 +140,67 @@ class signIn extends StatelessWidget {
             width: 350,
             height: 55,
             child: TextButton(
-              style: ElevatedButton.styleFrom(
-
+              style: TextButton.styleFrom(
                 backgroundColor: Colors.white,
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10)),
                 // side: BorderSide(width: 1.0, color: Color(0xffffffff)),
               ),
               onPressed: () {
-                Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => Users()),
-                );
+                // FirebaseAuth.instance
+                //     .signInWithEmailAndPassword(
+                //         email: _emailController.text,
+                //         password: _passwordController.text)
+                //     .then((value) =>
+                    Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => Users()),
+                        );
+                // );
               },
-
               child: const Text(
                 'Sign in',
                 style: TextStyle(
                     color: Color(0xffe72041),
                     fontFamily: 'Quicksand',
                     fontWeight: FontWeight.w900,
-                    fontSize: 20
-                ),
+                    fontSize: 20),
               ),
             ),
           ),
 
           Padding(
-
             padding: const EdgeInsets.all(25.0),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-
-
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Container(
                       width: 50,
                       height: 50,
-                      child: Image.asset('images/facebookicon.png')
-                  ),
-                ),
-
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Container(
-                      width: 50,
-                      height: 50,
-                      child: Image.asset('images/instaicon.jpg')
-                  ),
-                ),
-
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Container(
-                      width: 50,
-                      height: 50,
-                      child: Image.asset('images/twittericon.png')
-                  ),
+                      child: Image.asset('images/facebookicon.png')),
                 ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Container(
                       width: 50,
                       height: 50,
-                      child: Image.asset('images/whatsappicon.png')
-                  ),
+                      child: Image.asset('images/instaicon.jpg')),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Container(
+                      width: 50,
+                      height: 50,
+                      child: Image.asset('images/twittericon.png')),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Container(
+                      width: 50,
+                      height: 50,
+                      child: Image.asset('images/whatsappicon.png')),
                 ),
               ],
             ),
@@ -176,4 +209,11 @@ class signIn extends StatelessWidget {
       ),
     );
   }
+}
+
+Future logIn() async {
+  await FirebaseAuth.instance.signInWithEmailAndPassword(
+    email: _emailController.text.trim(),
+    password: _passwordController.text.trim(),
+  );
 }

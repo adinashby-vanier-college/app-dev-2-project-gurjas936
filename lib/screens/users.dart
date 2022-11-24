@@ -1,8 +1,12 @@
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:blood_bank/screens/donateBlood.dart';
 import 'package:blood_bank/screens/editProfile.dart';
+
+import 'feedback.dart';
 class Users extends StatefulWidget {
-  const Users({Key? key}) : super(key: key);
+
+  Users({Key? key,}) : super(key: key);
 
   @override
   State<Users> createState() => _UsersState();
@@ -10,7 +14,18 @@ class Users extends StatefulWidget {
 
 class _UsersState extends State<Users> {
   GlobalKey<ScaffoldState> _globalKey = GlobalKey<ScaffoldState>();
-  bool value = true;
+  bool value = false;
+  // Users usersObject; _UsersState(this.usersObject);
+
+  late DatabaseReference dbRef;
+
+  @override
+  void initState() {
+    super.initState();
+    dbRef = FirebaseDatabase.instance.ref().child('Users');
+  }
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -93,7 +108,10 @@ class _UsersState extends State<Users> {
                           color: Color(0xffe72041),
                         ),
                       ),
-                      onTap: () {},
+                      onTap: () {
+
+
+                      },
                     ),
                     ListTile(
                       title: const Text(
@@ -103,8 +121,12 @@ class _UsersState extends State<Users> {
                           color: Color(0xffe72041),
                         ),
                       ),
-                      onTap: () {},
-                    ),
+                      onTap: () {
+                        Navigator.pop(context);
+                        Navigator.push(context, new MaterialPageRoute(builder: (
+                            context) => new feedback()));
+                      }
+    ),
                     ListTile(
                       title: const Text(
                         'Settings',
@@ -187,6 +209,7 @@ class _UsersState extends State<Users> {
                                 ),
                                 Container(
                                   child: const Text(
+
                                     'Age:',
                                     style: TextStyle(
                                         fontSize: 20,
@@ -198,12 +221,15 @@ class _UsersState extends State<Users> {
                             ),
                           ],
                         ),
+
+//////////////////////////////////////                        // U S E R     N A M E
+
+
                         Padding(
                           padding: const EdgeInsets.only(left: 45, bottom: 40),
                           child: Container(
                             alignment: Alignment.centerLeft,
-                            child: const Text(
-                              'abc',
+                            child: Text("abc",
                               style: TextStyle(
                                   fontSize: 25,
                                   fontWeight: FontWeight.w900,
@@ -583,7 +609,17 @@ class _UsersState extends State<Users> {
                                     onChanged: (value){
                                       setState(()=>this.value = value);
                                       print(value);
+                                      if(value){
+                                        Map<String, String> Users = {
+                                          'name': 'xyz',
+                                          'age': '22',
+                                          'blood type': 'AB+',
+                                        };
+                                        dbRef.push().set(Users);
+                                      }
+                                      // else null;
                                     }
+
                                   ),
                                 ),
                               ),
@@ -605,7 +641,14 @@ class _UsersState extends State<Users> {
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(20)),
                           ),
-                          onPressed: () {},
+                          onPressed: () {
+                            Map<String, String> Users = {
+                              'name': 'xyz',
+                              'age': '22',
+                              'blood type': 'AB+',
+                            };
+                            dbRef.push().set(Users);
+                          },
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             crossAxisAlignment: CrossAxisAlignment.center,

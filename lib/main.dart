@@ -6,18 +6,26 @@ import 'package:blood_bank/screens/mainScreen.dart';
 import 'package:flutter/material.dart';
 //import 'package:blood_bank/screens/createAccount.dart';
 
-Future main() async {
+
+void main() async {
+
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   runApp(const MyApp());
 }
+
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-
+    // bool _isLoading = true;
+    // Timer(Duration(seconds: 2), () {
+    //   setState(() {
+    //     _isLoading = false;
+    //   });
+    // });
     return const MaterialApp(
 
       home: mainScreen(),
