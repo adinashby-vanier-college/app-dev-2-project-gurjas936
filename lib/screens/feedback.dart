@@ -12,7 +12,7 @@ class _feedbackState extends State<feedback> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        iconTheme: IconThemeData(color: Colors.black),
+        iconTheme: IconThemeData(color: Colors.red),
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         elevation: 2.0,
         centerTitle: true,
@@ -136,7 +136,7 @@ class _feedbackState extends State<feedback> {
                     width: 10.0,
                   ),
                   Text(
-                    "+60",
+                    "+1",
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       color: Colors.black,
