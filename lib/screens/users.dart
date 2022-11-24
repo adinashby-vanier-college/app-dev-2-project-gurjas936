@@ -6,7 +6,7 @@ import 'package:blood_bank/screens/editProfile.dart';
 import 'feedback.dart';
 class Users extends StatefulWidget {
 
-  Users({Key? key,}) : super(key: key);
+  Users({Key? key, required String name,}) : super(key: key);
 
   @override
   State<Users> createState() => _UsersState();
