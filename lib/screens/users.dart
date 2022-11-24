@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:blood_bank/screens/donateBlood.dart';
 import 'package:blood_bank/screens/editProfile.dart';
-//
 class Users extends StatefulWidget {
   const Users({Key? key}) : super(key: key);
 
