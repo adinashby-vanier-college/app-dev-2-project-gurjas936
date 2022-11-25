@@ -40,7 +40,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
           onPressed: () {
              Navigator.push(
                context,
-               MaterialPageRoute(builder: (context) => Users(name: '',)),
+               MaterialPageRoute(builder: (context) => Users()),
              );
           },
         ),

@@ -42,7 +42,7 @@ class _History extends State<History> {
             onPressed: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => Users(name: '',)),
+                MaterialPageRoute(builder: (context) => Users()),
               );
             },
           ),

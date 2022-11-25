@@ -26,7 +26,7 @@ class _feedbackState extends State<feedback> {
           onPressed: () {
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => Users(name: '',)),
+              MaterialPageRoute(builder: (context) => Users()),
             );
           },
         ),
