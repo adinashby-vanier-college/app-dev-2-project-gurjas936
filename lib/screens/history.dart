@@ -118,6 +118,7 @@ class HistoryPageState extends State<HistoryPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+
           iconTheme: IconThemeData(color: Colors.red),
           backgroundColor: Colors.white,
           leading: IconButton(

@@ -16,6 +16,8 @@ class _logoutState extends State<logout> {
   Widget build(BuildContext context){
      return Scaffold(
        appBar: AppBar(title: const Text('Log out'),),
+
+         //backgroundColor: Color.
          body: ElevatedButton(
          onPressed: (){
            _auth.signOut();
