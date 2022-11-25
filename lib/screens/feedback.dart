@@ -1,3 +1,4 @@
+import 'package:blood_bank/screens/users.dart';
 import 'package:flutter/material.dart';
 
 class feedback extends StatefulWidget {
@@ -22,7 +23,12 @@ class _feedbackState extends State<feedback> {
         ),
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
-          onPressed: () {},
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => Users(name: '',)),
+            );
+          },
         ),
       ),
       body: Padding(
@@ -79,6 +85,7 @@ class _feedbackState extends State<feedback> {
             GestureDetector(
               child: buildCheckItem(
                   title: "Suggestions", isSelected: isTypeSelected[4]),
+
               onTap: () {
                 setState(() {
                   isTypeSelected[4] = !isTypeSelected[4];
@@ -99,9 +106,9 @@ class _feedbackState extends State<feedback> {
                   child: Text(
                     "SUBMIT",
                     style: TextStyle(
-                        color: Colors.black, fontWeight: FontWeight.bold),
+                        color: Colors.white, fontWeight: FontWeight.bold),
                   ),
-                  color: Colors.grey,
+                  color: Colors.red,
                   padding: EdgeInsets.all(16.0),
                 ),
               ],
@@ -203,14 +210,14 @@ class _feedbackState extends State<feedback> {
                 children: [
                   Container(
                     decoration: BoxDecoration(
-                      color: Colors.black,
+                      color: Colors.red,
                       borderRadius: BorderRadius.circular(5.0),
                     ),
                     child: Padding(
                       padding: EdgeInsets.all(8.0),
                       child: Icon(
                         Icons.add,
-                        color: Color(0xFFA5A5A5),
+                        color: Colors.white,
                       ),
                     ),
                   ),
@@ -239,7 +246,7 @@ class _feedbackState extends State<feedback> {
         children: [
           Icon(
             isSelected ? Icons.check_circle : Icons.circle,
-            color: isSelected ? Colors.black : Colors.black,
+            color: isSelected ? Colors.red : Colors.red,
           ),
           SizedBox(width: 10.0),
           Text(
