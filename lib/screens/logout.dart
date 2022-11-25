@@ -22,9 +22,13 @@ class _logoutState extends State<logout> {
            Navigator.canPop(context) ? Navigator.pop(context) : null;
            Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => signIn()));
          },
-         child: const Text('Log out'),
+         child: const Text('Log out', style: TextStyle(
+             fontSize: 25,
+             fontWeight: FontWeight.w900,
+             color: Color(0xffe72041)),
+         ),),
 
-       )
+
      );
    }
 }
