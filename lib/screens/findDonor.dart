@@ -15,14 +15,14 @@ class findDonor extends StatefulWidget {
 }
 
 class _findDonorState extends State<findDonor> {
- // private FirebaseAuth mAuth;
+  // private FirebaseAuth mAuth;
   Query dbRef = FirebaseDatabase.instance.ref().child('persons');
   DatabaseReference reference = FirebaseDatabase.instance.ref().child('persons');
-
-  FirebaseDatabase database = FirebaseDatabase.instance;
-  DatabaseReference databaseUsers = FirebaseDatabase.instance.ref().child('Users');
- // String id = mAuth.getCurrentUser().getUid();
-  //DatabaseReference username = databaseUsers.child(id).child("username");
+  //
+  // FirebaseDatabase database = FirebaseDatabase.instance;
+  // DatabaseReference databaseUsers = FirebaseDatabase.instance.ref().child('Users');
+  // String id = mAuth.getCurrentUser().getUid();
+  // DatabaseReference username = databaseUsers.child(id).child("username");
 
   @override
   Widget build(BuildContext context) {
@@ -111,19 +111,19 @@ class _findDonorState extends State<findDonor> {
                         ],
                       ),
                     ),
-                   /* Container(
-                      query: dbRefUsers,
-                      itemBuilder: (BuildContext context, DataSnapshot snapshot, Animation<double> animation, int index) {
-
-                        Map persons = snapshot.value as Map;
-                        persons['key'] = snapshot.key;
-
-                        return listItem(persons: persons);
-
-                      },
-
-
-                    ),*/
+                    // Container(
+                    //   query: dbRefUsers,
+                    //   itemBuilder: (BuildContext context, DataSnapshot snapshot, Animation<double> animation, int index) {
+                    //
+                    //     Map persons = snapshot.value as Map;
+                    //     persons['key'] = snapshot.key;
+                    //
+                    //     return listItem(persons: persons);
+                    //
+                    //   },
+                    //
+                    //
+                    // ),
 
 
                   ],
