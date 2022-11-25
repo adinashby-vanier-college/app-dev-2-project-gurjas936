@@ -1,11 +1,10 @@
+import 'package:blood_bank/screens/signIn.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:blood_bank/screens/navBar.dart';
 
 import 'users.dart';
-
-void main() {
-  runApp(const createAccount());
-}
 
 class createAccount extends StatefulWidget {
   const createAccount({Key? key}) : super(key: key);
@@ -15,11 +14,19 @@ class createAccount extends StatefulWidget {
 }
 
 class _createAccount extends State<createAccount> {
-  final _textController = TextEditingController();
-  final _name = TextEditingController();
-  final _age = TextEditingController();
-  final _bloodGroup = TextEditingController();
-  final _passwordController = TextEditingController();
+  TextEditingController _textController = TextEditingController();
+  TextEditingController _name = TextEditingController();
+  TextEditingController _age = TextEditingController();
+  TextEditingController _bloodGroup = TextEditingController();
+  TextEditingController _passwordController = TextEditingController();
+
+  late DatabaseReference dbRef;
+
+  @override
+  void initState() {
+    super.initState();
+    dbRef = FirebaseDatabase.instance.ref().child('Users');
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -70,11 +77,11 @@ class _createAccount extends State<createAccount> {
                       Container(
                         padding: const EdgeInsets.only(
                             right: 20.0, left: 20.0, bottom: 10),
-                        child: TextFormField(
+                        child: TextField(
                           controller: _name,
                           decoration: InputDecoration(
                               fillColor: const Color(0xffe72041),
-                              labelText: "Name",
+                              hintText: "Name",
                               border: OutlineInputBorder(),
                               labelStyle: const TextStyle(
                                   color: Colors.white, fontFamily: 'Quicksand'),
@@ -86,7 +93,7 @@ class _createAccount extends State<createAccount> {
                               ),
                               suffixIcon: IconButton(
                                 onPressed: () {
-                                  _textController.clear();
+                                  _name.clear();
                                 },
                                 icon: const Icon(
                                   Icons.clear,
@@ -114,7 +121,7 @@ class _createAccount extends State<createAccount> {
                               ),
                               suffixIcon: IconButton(
                                 onPressed: () {
-                                  _textController.clear();
+                                  _age.clear();
                                 },
                                 icon: const Icon(
                                   Icons.clear,
@@ -141,7 +148,7 @@ class _createAccount extends State<createAccount> {
                               ),
                               suffixIcon: IconButton(
                                 onPressed: () {
-                                  _textController.clear();
+                                  _bloodGroup.clear();
                                 },
                                 icon: const Icon(
                                   Icons.clear,
@@ -222,12 +229,34 @@ class _createAccount extends State<createAccount> {
                                 borderRadius: BorderRadius.circular(10)),
                             // side: BorderSide(width: 1.0, color: Color(0xffffffff)),
                           ),
-                          onPressed: () {
-                            Navigator.push(
+                          onPressed: () async {
+                            try {
+                              await FirebaseAuth.instance
+                                  .createUserWithEmailAndPassword(
+                                  email: _textController.text.trim(),
+                                  password: _passwordController.text.trim());
+                            }on FirebaseAuthException catch(e) {
+                              print(e);
+                            }
+
+                            Map<String, String> Users = {
+                              'name': _name.text,
+                              'age': _age.text,
+                              'bloodGroup': _bloodGroup.text,
+                              'email': _textController.text,
+
+                            };
+
+                            dbRef.push().set(Users).then((value) => Navigator.push(
                               context,
-                              MaterialPageRoute(
-                                  builder: (context) => Users(name: _name.text,)),
-                            );
+                              MaterialPageRoute(builder: (context) => signIn()),
+                            ),);
+
+                            // Navigator.push(
+                            //   context,
+                            //   MaterialPageRoute(
+                            //       builder: (context) => Users()),
+                            // );
                           },
                           child: const Text(
                             'Create Account',

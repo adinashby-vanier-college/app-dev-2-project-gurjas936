@@ -1,40 +1,28 @@
 import 'package:blood_bank/screens/users.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:firebase_database/firebase_database.dart';
+import 'package:flutter/gestures.dart';
+
 import 'package:flutter/material.dart';
 import 'package:blood_bank/screens/navBar.dart';
 
-
-void main() async {
-
-  WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
-  runApp(signIn());
-}
-
+import '../authService.dart';
 
 class signIn extends StatefulWidget {
   @override
   State<signIn> createState() => _signInState();
 }
 
+
 final _emailController = TextEditingController();
 
 final _passwordController = TextEditingController();
 
+String getEmail() {
+  return _emailController.text.trim();
+}
+
 class _signInState extends State<signIn> {
-  final userNameController = TextEditingController();
-  final userAgeController = TextEditingController();
-  final userSalaryController = TextEditingController();
-
-  late FirebaseAuth auth;
-
-  @override
-  void initState() {
-    super.initState();
-    auth = FirebaseAuth.instance;
-  }
 
   // const signIn({Key? key}) : super(key: key);
 
@@ -146,16 +134,24 @@ class _signInState extends State<signIn> {
                     borderRadius: BorderRadius.circular(10)),
                 // side: BorderSide(width: 1.0, color: Color(0xffffffff)),
               ),
-              onPressed: () {
+              onPressed: () async {
+                // await FirebaseAuth.instance.signInWithEmailAndPassword(
+                //     email: _emailController.text.trim(),
+                //     password: _passwordController.text.trim()).then((value) =>
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Users()),
+                    );
+                // );
+
                 // FirebaseAuth.instance
                 //     .signInWithEmailAndPassword(
                 //         email: _emailController.text,
                 //         password: _passwordController.text)
-                //     .then((value) =>
-                    Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => Users()),
-                        );
+                //     .then((value) => Navigator.push(
+                //   context,
+                //   MaterialPageRoute(builder: (context) => Users()),
+                // ),
                 // );
               },
               child: const Text(
@@ -168,6 +164,22 @@ class _signInState extends State<signIn> {
               ),
             ),
           ),
+          //
+          // RichText(text: TextSpan(
+          //     style: TextStyle(color: Colors.white, fontSize: 15,),
+          //     text: 'no account?  ',
+          //     children: [
+          //       TextSpan(
+          //           recognizer: TapGestureRecognizer()
+          //             ..onTap = widget.onClickedSignUp,
+          //           text: 'Sign Up',
+          //           style: TextStyle(
+          //             decoration: TextDecoration.underline,
+          //             color: Colors.white,
+          //           )
+          //       )
+          //     ]
+          // ),),
 
           Padding(
             padding: const EdgeInsets.all(25.0),
@@ -213,7 +225,6 @@ class _signInState extends State<signIn> {
 
 Future logIn() async {
   await FirebaseAuth.instance.signInWithEmailAndPassword(
-    email: _emailController.text.trim(),
-    password: _passwordController.text.trim(),
-  );
+      email: _emailController.text.trim(),
+      password: _passwordController.text.trim());
 }

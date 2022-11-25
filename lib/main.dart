@@ -1,16 +1,11 @@
-//import 'dart:async';
-import 'package:firebase_core/firebase_core.dart';
-
 import 'package:blood_bank/screens/mainScreen.dart';
+import 'package:firebase_core/firebase_core.dart';
 //import 'package:blood_bank/screens/signIn.dart';
 import 'package:flutter/material.dart';
 //import 'package:blood_bank/screens/createAccount.dart';
-
-
 void main() async {
-
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+  Firebase.initializeApp();
   runApp(const MyApp());
 }
 
@@ -32,6 +27,15 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
+
+
+
+
+
+
+
+
 
 //       Scaffold(
 //         backgroundColor: Color(0xffe72041),

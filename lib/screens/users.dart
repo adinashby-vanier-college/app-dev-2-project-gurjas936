@@ -4,28 +4,25 @@ import 'package:blood_bank/screens/donateBlood.dart';
 import 'package:blood_bank/screens/editProfile.dart';
 
 import 'feedback.dart';
-class Users extends StatefulWidget {
+import 'findDonor.dart';
 
-  Users({Key? key,}) : super(key: key);
+class Users extends StatefulWidget {
+  Users({
+    Key? key,
+  }) : super(key: key);
 
   @override
   State<Users> createState() => _UsersState();
 }
 
 class _UsersState extends State<Users> {
+  Query dbRef = FirebaseDatabase.instance.ref().child('Users');
+  DatabaseReference reference = FirebaseDatabase.instance.ref().child('Users');
+
   GlobalKey<ScaffoldState> _globalKey = GlobalKey<ScaffoldState>();
   bool value = false;
+
   // Users usersObject; _UsersState(this.usersObject);
-
-  late DatabaseReference dbRef;
-
-  @override
-  void initState() {
-    super.initState();
-    dbRef = FirebaseDatabase.instance.ref().child('Users');
-  }
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -93,11 +90,11 @@ class _UsersState extends State<Users> {
                         ),
                       ),
                       onTap: () {
-
-                          Navigator.pop(context);
-                          Navigator.push(context, new MaterialPageRoute(builder: (context)=>new EditProfilePage()));
-
-
+                        Navigator.pop(context);
+                        Navigator.push(
+                            context,
+                            new MaterialPageRoute(
+                                builder: (context) => new EditProfilePage()));
                       },
                     ),
                     ListTile(
@@ -108,25 +105,23 @@ class _UsersState extends State<Users> {
                           color: Color(0xffe72041),
                         ),
                       ),
-                      onTap: () {
-
-
-                      },
+                      onTap: () {},
                     ),
                     ListTile(
-                      title: const Text(
-                        'Feedback',
-                        style: TextStyle(
-                          fontSize: 20,
-                          color: Color(0xffe72041),
+                        title: const Text(
+                          'Feedback',
+                          style: TextStyle(
+                            fontSize: 20,
+                            color: Color(0xffe72041),
+                          ),
                         ),
-                      ),
-                      onTap: () {
-                        Navigator.pop(context);
-                        Navigator.push(context, new MaterialPageRoute(builder: (
-                            context) => new feedback()));
-                      }
-    ),
+                        onTap: () {
+                          Navigator.pop(context);
+                          Navigator.push(
+                              context,
+                              new MaterialPageRoute(
+                                  builder: (context) => new feedback()));
+                        }),
                     ListTile(
                       title: const Text(
                         'Settings',
@@ -190,7 +185,7 @@ class _UsersState extends State<Users> {
                                     fit: BoxFit.cover,
                                   ),
                                   borderRadius:
-                                  BorderRadius.all(Radius.circular(60.0)),
+                                      BorderRadius.all(Radius.circular(60.0)),
                                 ),
                               ),
                             ),
@@ -209,7 +204,6 @@ class _UsersState extends State<Users> {
                                 ),
                                 Container(
                                   child: const Text(
-
                                     'Age:',
                                     style: TextStyle(
                                         fontSize: 20,
@@ -224,12 +218,12 @@ class _UsersState extends State<Users> {
 
 //////////////////////////////////////                        // U S E R     N A M E
 
-
                         Padding(
                           padding: const EdgeInsets.only(left: 45, bottom: 40),
                           child: Container(
                             alignment: Alignment.centerLeft,
-                            child: Text("abc",
+                            child: Text(
+                              "abc",
                               style: TextStyle(
                                   fontSize: 25,
                                   fontWeight: FontWeight.w900,
@@ -278,7 +272,7 @@ class _UsersState extends State<Users> {
                                   border: Border.all(color: Colors.black),
                                 ),
                                 child: TextButton(
-                                  onPressed: (){},
+                                  onPressed: () {},
                                   child: Row(
                                     children: [
                                       Container(
@@ -286,13 +280,13 @@ class _UsersState extends State<Users> {
                                         height: 80,
                                         decoration: const BoxDecoration(
                                             image: DecorationImage(
-                                              image: AssetImage('images/maps.png'),
-                                            )),
+                                          image: AssetImage('images/maps.png'),
+                                        )),
                                       ),
                                       Container(
                                         child: Column(
                                           crossAxisAlignment:
-                                          CrossAxisAlignment.start,
+                                              CrossAxisAlignment.start,
                                           children: [
                                             Container(
                                               child: const Text(
@@ -351,13 +345,13 @@ class _UsersState extends State<Users> {
                                         height: 80,
                                         decoration: const BoxDecoration(
                                             image: DecorationImage(
-                                              image: AssetImage('images/maps.png'),
-                                            )),
+                                          image: AssetImage('images/maps.png'),
+                                        )),
                                       ),
                                       Container(
                                         child: Column(
                                           crossAxisAlignment:
-                                          CrossAxisAlignment.start,
+                                              CrossAxisAlignment.start,
                                           children: [
                                             Container(
                                               child: const Text(
@@ -416,13 +410,13 @@ class _UsersState extends State<Users> {
                                         height: 80,
                                         decoration: const BoxDecoration(
                                             image: DecorationImage(
-                                              image: AssetImage('images/maps.png'),
-                                            )),
+                                          image: AssetImage('images/maps.png'),
+                                        )),
                                       ),
                                       Container(
                                         child: Column(
                                           crossAxisAlignment:
-                                          CrossAxisAlignment.start,
+                                              CrossAxisAlignment.start,
                                           children: [
                                             Container(
                                               child: const Text(
@@ -493,7 +487,8 @@ class _UsersState extends State<Users> {
                               onPressed: () {
                                 Navigator.push(
                                   context,
-                                  MaterialPageRoute(builder: (context) => donateBlood()),
+                                  MaterialPageRoute(
+                                      builder: (context) => donateBlood()),
                                 );
                               },
                               child: Column(
@@ -538,7 +533,13 @@ class _UsersState extends State<Users> {
                                 shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(20)),
                               ),
-                              onPressed: () {},
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => findDonor()),
+                                );
+                              },
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
@@ -582,45 +583,35 @@ class _UsersState extends State<Users> {
                         width: 330,
                         height: 70,
                         decoration: BoxDecoration(
-                          border: Border.all(color: Color(0xffe72041), width: 5),
+                          border:
+                              Border.all(color: Color(0xffe72041), width: 5),
                           borderRadius: BorderRadius.circular(20),
-
-
                         ),
                         child: Padding(
                           padding: const EdgeInsets.all(12.0),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Text("Active to donate",
-                              style: TextStyle(
-                                fontSize: 20,
-                                color: Color(0xffe72041),
-                                fontWeight: FontWeight.bold
-                              ),),
-
+                              Text(
+                                "Active to donate",
+                                style: TextStyle(
+                                    fontSize: 20,
+                                    color: Color(0xffe72041),
+                                    fontWeight: FontWeight.bold),
+                              ),
                               Transform.scale(
                                 scale: 1.5,
                                 child: Container(
-
                                   child: Switch.adaptive(
-                                    activeColor: Color(0xffe72041),
-                                    value: value,
-                                    onChanged: (value){
-                                      setState(()=>this.value = value);
-                                      print(value);
-                                      if(value){
-                                        Map<String, String> Users = {
-                                          'name': 'xyz',
-                                          'age': '22',
-                                          'blood type': 'AB+',
-                                        };
-                                        dbRef.push().set(Users);
-                                      }
-                                      // else null;
-                                    }
+                                      activeColor: Color(0xffe72041),
+                                      value: value,
+                                      onChanged: (value) {
+                                        setState(() => this.value = value);
+                                        print(value);
+                                        if(value){
 
-                                  ),
+                                        }
+                                      }),
                                 ),
                               ),
                             ],
@@ -631,7 +622,6 @@ class _UsersState extends State<Users> {
                         height: 20,
                       ),
 
-
                       Container(
                         width: 300,
                         height: 70,
@@ -641,14 +631,8 @@ class _UsersState extends State<Users> {
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(20)),
                           ),
-
                           onPressed: () {
-                            Map<String, String> Users = {
-                              'name': 'xyz',
-                              'age': '22',
-                              'blood type': 'AB+',
-                            };
-                            dbRef.push().set(Users);
+                            // dbRef.push().set(students);
                           },
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
@@ -687,9 +671,6 @@ class _UsersState extends State<Users> {
                 ),
               ),
             ),
-
-            //////////////////////////////////////////E M E R G E N C Y
-
           ],
         ),
         Padding(
@@ -702,4 +683,5 @@ class _UsersState extends State<Users> {
         )
       ]),
     );
-  }}
+  }
+}
