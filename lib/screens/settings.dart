@@ -1,15 +1,13 @@
 import 'package:flutter/material.dart';
-//import 'package:flutter_ui_challenges/core/presentation/res/assets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class SettingsOnePage extends StatefulWidget {
-  static final String path = "lib/src/pages/settings/settings1.dart";
+class Settings extends StatefulWidget {
 
   @override
-  _SettingsOnePageState createState() => _SettingsOnePageState();
+  _SettingsState createState() => _SettingsState();
 }
 
-class _SettingsOnePageState extends State<SettingsOnePage> {
+class _SettingsState extends State<Settings> {
   late bool _dark;
 
   @override
@@ -68,7 +66,7 @@ class _SettingsOnePageState extends State<SettingsOnePage> {
                         //open edit profile
                       },
                       title: Text(
-                        "John Doe",
+                        "Wilson Homes",
                         style: TextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.w500,
@@ -105,11 +103,12 @@ class _SettingsOnePageState extends State<SettingsOnePage> {
                         _buildDivider(),
                         ListTile(
                           leading: Icon(
-                            FontAwesomeIcons.language,
+                            FontAwesomeIcons.mobileRetro,
                             color: Colors.purple,
                           ),
-                          title: Text("Change Language"),
+                          title: Text("Change Mobile Number"),
                           trailing: Icon(Icons.keyboard_arrow_right),
+
                           onTap: () {
                             //open change language
                           },
@@ -145,18 +144,18 @@ class _SettingsOnePageState extends State<SettingsOnePage> {
                     title: Text("Received notification"),
                     onChanged: (val) {},
                   ),
-                  SwitchListTile(
+                   SwitchListTile(
                     activeColor: Colors.purple,
                     contentPadding: const EdgeInsets.all(0),
                     value: false,
-                    title: Text("Received newsletter"),
+                    title: Text("Received donor Notification"),
                     onChanged: null,
                   ),
                   SwitchListTile(
                     activeColor: Colors.purple,
                     contentPadding: const EdgeInsets.all(0),
                     value: true,
-                    title: Text("Received Offer Notification"),
+                    title: Text("Receiver Notification"),
                     onChanged: (val) {},
                   ),
                   SwitchListTile(
@@ -170,32 +169,6 @@ class _SettingsOnePageState extends State<SettingsOnePage> {
                 ],
               ),
             ),
-            Positioned(
-              bottom: -20,
-              left: -20,
-              child: Container(
-                width: 80,
-                height: 80,
-                alignment: Alignment.center,
-                decoration: BoxDecoration(
-                  color: Colors.purple,
-                  shape: BoxShape.circle,
-                ),
-              ),
-            ),
-            Positioned(
-              bottom: 00,
-              left: 00,
-              child: IconButton(
-                icon: Icon(
-                  FontAwesomeIcons.powerOff,
-                  color: Colors.white,
-                ),
-                onPressed: () {
-                  //log out
-                },
-              ),
-            )
           ],
         ),
       ),
