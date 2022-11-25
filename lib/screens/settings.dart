@@ -31,22 +31,12 @@ class _SettingsState extends State<Settings> {
         appBar: AppBar(
           elevation: 0,
           brightness: _getBrightness(),
-          iconTheme: IconThemeData(color: _dark ? Colors.white : Colors.black),
+          iconTheme: IconThemeData(color: _dark ? Colors.white : Colors.red),
           backgroundColor: Colors.transparent,
           title: Text(
             'Settings',
             style: TextStyle(color: _dark ? Colors.white : Colors.black),
           ),
-          actions: <Widget>[
-            IconButton(
-              icon: Icon(FontAwesomeIcons.moon),
-              onPressed: () {
-                setState(() {
-                  _dark = !_dark;
-                });
-              },
-            )
-          ],
         ),
         body: Stack(
           fit: StackFit.expand,
@@ -60,7 +50,7 @@ class _SettingsState extends State<Settings> {
                     elevation: 8.0,
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10.0)),
-                    color: Colors.purple,
+                    color: Colors.red,
                     child: ListTile(
                       onTap: () {
                         //open edit profile
@@ -92,7 +82,7 @@ class _SettingsState extends State<Settings> {
                         ListTile(
                           leading: Icon(
                             Icons.lock_outline,
-                            color: Colors.purple,
+                            color: Colors.red,
                           ),
                           title: Text("Change Password"),
                           trailing: Icon(Icons.keyboard_arrow_right),
@@ -104,7 +94,7 @@ class _SettingsState extends State<Settings> {
                         ListTile(
                           leading: Icon(
                             FontAwesomeIcons.mobileRetro,
-                            color: Colors.purple,
+                            color: Colors.red,
                           ),
                           title: Text("Change Mobile Number"),
                           trailing: Icon(Icons.keyboard_arrow_right),
@@ -117,7 +107,7 @@ class _SettingsState extends State<Settings> {
                         ListTile(
                           leading: Icon(
                             Icons.location_on,
-                            color: Colors.purple,
+                            color: Colors.red,
                           ),
                           title: Text("Change Location"),
                           trailing: Icon(Icons.keyboard_arrow_right),
@@ -138,28 +128,28 @@ class _SettingsState extends State<Settings> {
                     ),
                   ),
                   SwitchListTile(
-                    activeColor: Colors.purple,
+                    activeColor: Colors.black,
                     contentPadding: const EdgeInsets.all(0),
                     value: true,
                     title: Text("Received notification"),
                     onChanged: (val) {},
                   ),
                    SwitchListTile(
-                    activeColor: Colors.purple,
+                    activeColor: Colors.black,
                     contentPadding: const EdgeInsets.all(0),
                     value: false,
                     title: Text("Received donor Notification"),
                     onChanged: null,
                   ),
                   SwitchListTile(
-                    activeColor: Colors.purple,
+                    activeColor: Colors.black,
                     contentPadding: const EdgeInsets.all(0),
                     value: true,
                     title: Text("Receiver Notification"),
                     onChanged: (val) {},
                   ),
                   SwitchListTile(
-                    activeColor: Colors.purple,
+                    activeColor: Colors.black,
                     contentPadding: const EdgeInsets.all(0),
                     value: true,
                     title: Text("Received App Updates"),
