@@ -135,14 +135,14 @@ class _signInState extends State<signIn> {
                 // side: BorderSide(width: 1.0, color: Color(0xffffffff)),
               ),
               onPressed: () async {
-                // await FirebaseAuth.instance.signInWithEmailAndPassword(
-                //     email: _emailController.text.trim(),
-                //     password: _passwordController.text.trim()).then((value) =>
+                await FirebaseAuth.instance.signInWithEmailAndPassword(
+                    email: _emailController.text.trim(),
+                    password: _passwordController.text.trim()).then((value) =>
                     Navigator.push(
                       context,
                       MaterialPageRoute(builder: (context) => Users()),
-                    );
-                // );
+                    ),
+                );
 
                 // FirebaseAuth.instance
                 //     .signInWithEmailAndPassword(

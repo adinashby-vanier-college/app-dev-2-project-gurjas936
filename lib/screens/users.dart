@@ -6,6 +6,8 @@ import 'package:blood_bank/screens/editProfile.dart';
 import 'feedback.dart';
 import 'findDonor.dart';
 
+
+
 class Users extends StatefulWidget {
   Users({
     Key? key,
@@ -16,14 +18,24 @@ class Users extends StatefulWidget {
 }
 
 class _UsersState extends State<Users> {
-  Query dbRef = FirebaseDatabase.instance.ref().child('Users');
-  DatabaseReference reference = FirebaseDatabase.instance.ref().child('Users');
+  late DatabaseReference dbRef;
+  @override
+  void initState() {
+    super.initState();
+    dbRef = FirebaseDatabase.instance.ref().child('persons');
+  }
+
+
 
   GlobalKey<ScaffoldState> _globalKey = GlobalKey<ScaffoldState>();
   bool value = false;
 
-  // Users usersObject; _UsersState(this.usersObject);
+  String _name = "abc";
+  String _age = "27";
+  String _bloodGroup = "AB+";
 
+  // Users usersObject; _UsersState(this.usersObject);
+  Map<String, String> persons = Map();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -69,8 +81,8 @@ class _UsersState extends State<Users> {
                       ),
                     ),
                     Container(
-                      child: const Text(
-                        'abc',
+                      child:  Text(
+                        _name,
                         style: TextStyle(
                             fontSize: 25,
                             fontWeight: FontWeight.w900,
@@ -159,7 +171,7 @@ class _UsersState extends State<Users> {
               child: Column(
                 children: [
                   Container(
-                    height: 260,
+                    height: 201,
                     width: 250,
                     decoration: const BoxDecoration(
                       image: DecorationImage(
@@ -172,10 +184,10 @@ class _UsersState extends State<Users> {
                       children: [
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          crossAxisAlignment: CrossAxisAlignment.end,
+                          // crossAxisAlignment: CrossAxisAlignment.end,
                           children: [
                             Padding(
-                              padding: const EdgeInsets.only(left: 30),
+                              padding: const EdgeInsets.only(left: 45),
                               child: Container(
                                 height: 70,
                                 width: 70,
@@ -194,19 +206,19 @@ class _UsersState extends State<Users> {
                               mainAxisAlignment: MainAxisAlignment.end,
                               children: [
                                 Container(
-                                  child: const Text(
-                                    'Blood Type:',
+                                  child:  Text(
+                                    'Blood Group: $_bloodGroup',
                                     style: TextStyle(
-                                        fontSize: 20,
+                                        fontSize: 15,
                                         fontWeight: FontWeight.w900,
                                         color: Colors.white),
                                   ),
                                 ),
                                 Container(
-                                  child: const Text(
-                                    'Age:',
+                                  child: Text(
+                                    'Age: $_age',
                                     style: TextStyle(
-                                        fontSize: 20,
+                                        fontSize: 15,
                                         fontWeight: FontWeight.w900,
                                         color: Colors.white),
                                   ),
@@ -223,9 +235,9 @@ class _UsersState extends State<Users> {
                           child: Container(
                             alignment: Alignment.centerLeft,
                             child: Text(
-                              "abc",
+                              'Name: $_name',
                               style: TextStyle(
-                                  fontSize: 25,
+                                  fontSize: 15,
                                   fontWeight: FontWeight.w900,
                                   color: Colors.white),
                             ),
@@ -238,7 +250,7 @@ class _UsersState extends State<Users> {
               ),
             ),
             Expanded(
-              flex: 2,
+              flex: 3,
               child: Container(
                 height: 10,
                 color: Colors.white,
@@ -609,6 +621,22 @@ class _UsersState extends State<Users> {
                                         setState(() => this.value = value);
                                         print(value);
                                         if(value){
+                                          persons = {
+                                            'name': _name,
+                                            'age': _age,
+                                            'bloodGroup': _bloodGroup,
+                                            // 'email': _textController.text,
+
+                                          };
+
+                                          dbRef.push().set(persons);
+
+                                        }
+                                        else{
+                                          DatabaseReference ref = FirebaseDatabase.instance.ref("persons/123");
+                                          print(ref.key); // "123"
+                                          print(dbRef.key);
+                                          // ref.child(persons['ref.key']!).remove();
 
                                         }
                                       }),
