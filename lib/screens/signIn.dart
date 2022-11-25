@@ -84,7 +84,7 @@ class _signInState extends State<signIn> {
             padding: const EdgeInsets.only(right: 20.0, left: 20.0, bottom: 10),
             child: TextFormField(
               controller: _passwordController,
-              // obscureText: true,
+              obscureText: true,
               decoration: InputDecoration(
                 fillColor: const Color(0xffe72041),
                 hintText: "Password",
@@ -141,8 +141,11 @@ class _signInState extends State<signIn> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(builder: (context) => Users()),
-                    ),
+                    )
                 );
+
+                _emailController.clear();
+                _passwordController.clear();
 
                 // FirebaseAuth.instance
                 //     .signInWithEmailAndPassword(

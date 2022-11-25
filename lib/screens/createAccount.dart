@@ -83,7 +83,7 @@ class _createAccount extends State<createAccount> {
                               fillColor: const Color(0xffe72041),
                               hintText: "Name",
                               border: OutlineInputBorder(),
-                              labelStyle: const TextStyle(
+                              hintStyle: const TextStyle(
                                   color: Colors.white, fontFamily: 'Quicksand'),
                               filled: true,
                               enabledBorder: OutlineInputBorder(
@@ -161,7 +161,7 @@ class _createAccount extends State<createAccount> {
                       Container(
                         padding: const EdgeInsets.only(
                             right: 20.0, left: 20.0, bottom: 10),
-                        child: TextField(
+                        child: TextFormField(
                           controller: _textController,
                           decoration: InputDecoration(
                               fillColor: const Color(0xffe72041),
@@ -230,12 +230,20 @@ class _createAccount extends State<createAccount> {
                             // side: BorderSide(width: 1.0, color: Color(0xffffffff)),
                           ),
                           onPressed: () async {
+                            showDialog(
+                                context: context,
+                                barrierDismissible: false,
+                                builder: (context) => Center(
+                                      child: CircularProgressIndicator(),
+                                    ));
+
                             try {
                               await FirebaseAuth.instance
                                   .createUserWithEmailAndPassword(
-                                  email: _textController.text.trim(),
-                                  password: _passwordController.text.trim());
-                            }on FirebaseAuthException catch(e) {
+                                      email: _textController.text.trim(),
+                                      password:
+                                          _passwordController.text.trim());
+                            } on FirebaseAuthException catch (e) {
                               print(e);
                             }
 
@@ -244,13 +252,16 @@ class _createAccount extends State<createAccount> {
                               'age': _age.text,
                               'bloodGroup': _bloodGroup.text,
                               'email': _textController.text,
-
                             };
 
-                            dbRef.push().set(Users).then((value) => Navigator.push(
-                              context,
-                              MaterialPageRoute(builder: (context) => signIn()),
-                            ),);
+                            dbRef.push().set(Users).then(
+                                  (value) => Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => signIn()),
+                                  ),
+                                );
+                            // navigatorKey.currentState!.popUntil((route) => route());
 
                             // Navigator.push(
                             //   context,

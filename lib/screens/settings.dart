@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
- import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+ // import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class Settings extends StatefulWidget {
 
@@ -92,10 +92,10 @@ class _SettingsState extends State<Settings> {
                         ),
                         _buildDivider(),
                         ListTile(
-                          leading: Icon(
-                            FontAwesomeIcons.mobileRetro,
-                            color: Colors.red,
-                          ),
+                          // leading: Icon(
+                          //   FontAwesomeIcons.mobileRetro,
+                          //   color: Colors.red,
+                          // ),
                           title: Text("Change Mobile Number"),
                           trailing: Icon(Icons.keyboard_arrow_right),
 

@@ -1,8 +1,7 @@
 
-
-
-
 import 'package:blood_bank/screens/settings.dart';
+import 'package:blood_bank/screens/signIn.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:blood_bank/screens/donateBlood.dart';
@@ -35,7 +34,7 @@ class _UsersState extends State<Users> {
 
   GlobalKey<ScaffoldState> _globalKey = GlobalKey<ScaffoldState>();
   bool value = false;
-
+  final FirebaseAuth _auth = FirebaseAuth.instance;
   String _name = "abc";
   String _age = "27";
   String _bloodGroup = "AB+";
@@ -171,11 +170,10 @@ class _UsersState extends State<Users> {
                         ),
                       ),
                       onTap: () {
-                        Navigator.pop(context);
-                        Navigator.push(
-                            context,
-                            new MaterialPageRoute(
-                                builder: (context) => new logout()));
+
+                        _auth.signOut();
+                        Navigator.canPop(context) ? Navigator.pop(context) : null;
+                        Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => signIn()));
                       },
                     ),
                   ],
