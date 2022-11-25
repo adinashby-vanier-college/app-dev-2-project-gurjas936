@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-// import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class Settings extends StatefulWidget {
 
@@ -56,7 +56,7 @@ class _SettingsState extends State<Settings> {
                         //open edit profile
                       },
                       title: Text(
-                        "Wilson Homes",
+                        "abc",
                         style: TextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.w500,
@@ -92,10 +92,10 @@ class _SettingsState extends State<Settings> {
                         ),
                         _buildDivider(),
                         ListTile(
-                          // leading: Icon(
-                          //   FontAwesomeIcons.mobileRetro,
-                          //   color: Colors.red,
-                          // ),
+                          leading: Icon(
+                            FontAwesomeIcons.mobileRetro,
+                            color: Colors.red,
+                          ),
                           title: Text("Change Mobile Number"),
                           trailing: Icon(Icons.keyboard_arrow_right),
 
@@ -124,32 +124,32 @@ class _SettingsState extends State<Settings> {
                     style: TextStyle(
                       fontSize: 20.0,
                       fontWeight: FontWeight.bold,
-                      color: Colors.indigo,
+                      color: Colors.black,
                     ),
                   ),
                   SwitchListTile(
-                    activeColor: Colors.black,
+                    activeColor: Colors.red,
                     contentPadding: const EdgeInsets.all(0),
                     value: true,
                     title: Text("Received notification"),
                     onChanged: (val) {},
                   ),
                    SwitchListTile(
-                    activeColor: Colors.black,
+                    activeColor: Colors.red,
                     contentPadding: const EdgeInsets.all(0),
                     value: false,
                     title: Text("Received donor Notification"),
                     onChanged: null,
                   ),
                   SwitchListTile(
-                    activeColor: Colors.black,
+                    activeColor: Colors.red,
                     contentPadding: const EdgeInsets.all(0),
                     value: true,
                     title: Text("Receiver Notification"),
                     onChanged: (val) {},
                   ),
                   SwitchListTile(
-                    activeColor: Colors.black,
+                    activeColor: Colors.red,
                     contentPadding: const EdgeInsets.all(0),
                     value: true,
                     title: Text("Received App Updates"),
