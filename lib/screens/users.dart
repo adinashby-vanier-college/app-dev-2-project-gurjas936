@@ -1,8 +1,12 @@
+
+
+
+
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:blood_bank/screens/donateBlood.dart';
 import 'package:blood_bank/screens/editProfile.dart';
-
+import 'package:blood_bank/screens/history.dart';
 import 'feedback.dart';
 import 'findDonor.dart';
 
@@ -105,7 +109,13 @@ class _UsersState extends State<Users> {
                           color: Color(0xffe72041),
                         ),
                       ),
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.pop(context);
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => new History()));
+                      },
                     ),
                     ListTile(
                         title: const Text(
