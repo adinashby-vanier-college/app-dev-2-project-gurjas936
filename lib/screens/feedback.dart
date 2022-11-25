@@ -1,3 +1,4 @@
+import 'package:blood_bank/screens/users.dart';
 import 'package:flutter/material.dart';
 
 class feedback extends StatefulWidget {
@@ -12,8 +13,8 @@ class _feedbackState extends State<feedback> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        iconTheme: IconThemeData(color: Colors.black),
-        backgroundColor: Colors.white,
+        iconTheme: IconThemeData(color: Colors.red),
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         elevation: 2.0,
         centerTitle: true,
         title: Text(
@@ -22,7 +23,12 @@ class _feedbackState extends State<feedback> {
         ),
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
-          onPressed: () {},
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => Users(name: '',)),
+            );
+          },
         ),
       ),
       body: Padding(
@@ -36,7 +42,7 @@ class _feedbackState extends State<feedback> {
             Text(
               "Please select the type of the feedback",
               style: TextStyle(
-                color: Color(0xFFC5C5C5),
+                color: Colors.black,
               ),
             ),
             SizedBox(height: 25.0),
@@ -79,6 +85,7 @@ class _feedbackState extends State<feedback> {
             GestureDetector(
               child: buildCheckItem(
                   title: "Suggestions", isSelected: isTypeSelected[4]),
+
               onTap: () {
                 setState(() {
                   isTypeSelected[4] = !isTypeSelected[4];
@@ -101,7 +108,7 @@ class _feedbackState extends State<feedback> {
                     style: TextStyle(
                         color: Colors.white, fontWeight: FontWeight.bold),
                   ),
-                  color: Color(0xFFE5E5E5),
+                  color: Colors.red,
                   padding: EdgeInsets.all(16.0),
                 ),
               ],
@@ -125,7 +132,7 @@ class _feedbackState extends State<feedback> {
                 border: Border(
                   right: BorderSide(
                     width: 1.0,
-                    color: Color(0xFFC5C5C5),
+                    color: Colors.black,
                   ),
                 ),
               ),
@@ -136,15 +143,15 @@ class _feedbackState extends State<feedback> {
                     width: 10.0,
                   ),
                   Text(
-                    "+60",
+                    "+1",
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
-                      color: Color(0xFFC5C5C5),
+                      color: Colors.black,
                     ),
                   ),
                   Icon(
                     Icons.arrow_drop_down,
-                    color: Colors.cyan,
+                    color: Colors.black,
                   ),
                   SizedBox(
                     width: 10.0,
@@ -158,8 +165,8 @@ class _feedbackState extends State<feedback> {
           ],
         ),
         hintStyle: TextStyle(
-          fontSize: 14.0,
-          color: Color(0xFFC5C5C5),
+          fontSize: 16.0,
+          color: Colors.black,
         ),
         hintText: "Phone Number",
         border: OutlineInputBorder(),
@@ -178,11 +185,11 @@ class _feedbackState extends State<feedback> {
               hintText: "Please briefly describe the issue",
               hintStyle: TextStyle(
                 fontSize: 13.0,
-                color: Color(0xFFC5C5C5),
+                color: Colors.black,
               ),
               border: OutlineInputBorder(
                 borderSide: BorderSide(
-                  color: Color(0xFFE5E5E5),
+                  color: Colors.black,
                 ),
               ),
             ),
@@ -194,7 +201,7 @@ class _feedbackState extends State<feedback> {
                 border: Border(
                   top: BorderSide(
                     width: 1.0,
-                    color: Color(0xFFA6A6A6),
+                    color: Colors.black,
                   ),
                 ),
               ),
@@ -203,14 +210,14 @@ class _feedbackState extends State<feedback> {
                 children: [
                   Container(
                     decoration: BoxDecoration(
-                      color: Color(0xFFE5E5E5),
+                      color: Colors.red,
                       borderRadius: BorderRadius.circular(5.0),
                     ),
                     child: Padding(
                       padding: EdgeInsets.all(8.0),
                       child: Icon(
                         Icons.add,
-                        color: Color(0xFFA5A5A5),
+                        color: Colors.white,
                       ),
                     ),
                   ),
@@ -220,7 +227,7 @@ class _feedbackState extends State<feedback> {
                   Text(
                     "Upload screenshot (optional)",
                     style: TextStyle(
-                      color: Color(0xFFC5C5C5),
+                      color: Colors.black,
                     ),
                   ),
                 ],
@@ -239,14 +246,14 @@ class _feedbackState extends State<feedback> {
         children: [
           Icon(
             isSelected ? Icons.check_circle : Icons.circle,
-            color: isSelected ? Colors.blue : Colors.grey,
+            color: isSelected ? Colors.red : Colors.red,
           ),
           SizedBox(width: 10.0),
           Text(
             title,
             style: TextStyle(
                 fontWeight: FontWeight.bold,
-                color: isSelected ? Colors.blue : Colors.grey),
+                color: isSelected ? Colors.black : Colors.black),
           ),
         ],
       ),
