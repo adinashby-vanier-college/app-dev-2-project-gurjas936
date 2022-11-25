@@ -1,13 +1,15 @@
-
-
-
-
+import 'package:blood_bank/screens/history.dart';
+import 'package:blood_bank/screens/logout.dart';
+import 'package:blood_bank/screens/settings.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:blood_bank/screens/donateBlood.dart';
 import 'package:blood_bank/screens/editProfile.dart';
-import 'package:blood_bank/screens/history.dart';
+
 import 'feedback.dart';
+import 'settings.dart';
+import 'logout.dart';
+import 'history.dart';
 import 'findDonor.dart';
 
 class Users extends StatefulWidget {
@@ -113,7 +115,7 @@ class _UsersState extends State<Users> {
                         Navigator.pop(context);
                         Navigator.push(
                             context,
-                            MaterialPageRoute(
+                            new MaterialPageRoute(
                                 builder: (context) => new History()));
                       },
                     ),
@@ -140,7 +142,13 @@ class _UsersState extends State<Users> {
                           color: Color(0xffe72041),
                         ),
                       ),
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.pop(context);
+                        Navigator.push(
+                            context,
+                            new MaterialPageRoute(
+                                builder: (context) => new Settings()));
+                      },
                     ),
                     ListTile(
                       title: const Text(
@@ -150,7 +158,13 @@ class _UsersState extends State<Users> {
                           color: Color(0xffe72041),
                         ),
                       ),
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.pop(context);
+                        Navigator.push(
+                            context,
+                            new MaterialPageRoute(
+                                builder: (context) => new logout()));
+                      },
                     ),
                   ],
                 ),

@@ -25,10 +25,10 @@ class _logoutState extends State<logout> {
          child: const Text('Log out', style: TextStyle(
              fontSize: 25,
              fontWeight: FontWeight.w900,
-             color: Color(0xffe72041)),
+             color: Colors.black,
          ),),
 
-
+         )
      );
    }
 }
