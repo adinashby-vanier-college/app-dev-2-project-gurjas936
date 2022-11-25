@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 //import 'package:flutter_ui_challenges/core/presentation/res/assets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class SettingsOnePage extends StatefulWidget {
+class Settings extends StatefulWidget {
   static final String path = "lib/src/pages/settings/settings1.dart";
 
   @override
-  _SettingsOnePageState createState() => _SettingsOnePageState();
+  _SettingsState createState() => _SettingsState();
 }
 
-class _SettingsOnePageState extends State<SettingsOnePage> {
+class _SettingsState extends State<Settings> {
   late bool _dark;
 
   @override
@@ -68,7 +68,7 @@ class _SettingsOnePageState extends State<SettingsOnePage> {
                         //open edit profile
                       },
                       title: Text(
-                        "John Doe",
+                        "Wilson Homes",
                         style: TextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.w500,
@@ -105,11 +105,12 @@ class _SettingsOnePageState extends State<SettingsOnePage> {
                         _buildDivider(),
                         ListTile(
                           leading: Icon(
-                            FontAwesomeIcons.language,
+                            FontAwesomeIcons.mobileRetro,
                             color: Colors.purple,
                           ),
-                          title: Text("Change Language"),
+                          title: Text("Change Mobile Number"),
                           trailing: Icon(Icons.keyboard_arrow_right),
+
                           onTap: () {
                             //open change language
                           },
