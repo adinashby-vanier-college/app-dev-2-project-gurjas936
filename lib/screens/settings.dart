@@ -56,7 +56,7 @@ class _SettingsState extends State<Settings> {
                         //open edit profile
                       },
                       title: Text(
-                        "abc",
+                        "Wilson Homes",
                         style: TextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.w500,
@@ -124,32 +124,32 @@ class _SettingsState extends State<Settings> {
                     style: TextStyle(
                       fontSize: 20.0,
                       fontWeight: FontWeight.bold,
-                      color: Colors.black,
+                      color: Colors.indigo,
                     ),
                   ),
                   SwitchListTile(
-                    activeColor: Colors.red,
+                    activeColor: Colors.black,
                     contentPadding: const EdgeInsets.all(0),
                     value: true,
                     title: Text("Received notification"),
                     onChanged: (val) {},
                   ),
                    SwitchListTile(
-                    activeColor: Colors.red,
+                    activeColor: Colors.black,
                     contentPadding: const EdgeInsets.all(0),
                     value: false,
                     title: Text("Received donor Notification"),
                     onChanged: null,
                   ),
                   SwitchListTile(
-                    activeColor: Colors.red,
+                    activeColor: Colors.black,
                     contentPadding: const EdgeInsets.all(0),
                     value: true,
                     title: Text("Receiver Notification"),
                     onChanged: (val) {},
                   ),
                   SwitchListTile(
-                    activeColor: Colors.red,
+                    activeColor: Colors.black,
                     contentPadding: const EdgeInsets.all(0),
                     value: true,
                     title: Text("Received App Updates"),
