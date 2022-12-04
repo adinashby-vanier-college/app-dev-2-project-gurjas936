@@ -1,4 +1,5 @@
 import 'package:blood_bank/data/userData.dart';
+import 'package:blood_bank/screens/forgotPassword.dart';
 import 'package:blood_bank/screens/users.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -155,7 +156,12 @@ class _signInState extends State<signIn> {
                   fontFamily: 'Quicksand',
                 ),
               ),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => ForgotPassword()),
+                );
+              },
             ),
           ),
 
