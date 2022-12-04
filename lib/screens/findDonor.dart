@@ -3,6 +3,7 @@ import 'package:firebase_database/firebase_database.dart';
 import 'package:firebase_database/ui/firebase_animated_list.dart';
 import 'package:flutter/material.dart';
 
+
 void main() {
   runApp(const findDonor());
 }
@@ -17,12 +18,16 @@ class findDonor extends StatefulWidget {
 class _findDonorState extends State<findDonor> {
   // private FirebaseAuth mAuth;
   Query dbRef = FirebaseDatabase.instance.ref().child('persons');
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+
   DatabaseReference reference = FirebaseDatabase.instance.ref().child('persons');
-  //
-  // FirebaseDatabase database = FirebaseDatabase.instance;
-  // DatabaseReference databaseUsers = FirebaseDatabase.instance.ref().child('Users');
-  // String id = mAuth.getCurrentUser().getUid();
-  // DatabaseReference username = databaseUsers.child(id).child("username");
+  // DatabaseReference ref = FirebaseDatabase.instance.ref().child('Users');
+
+  // @override
+  // void initState() {
+  //   super.initState();
+  //   dbRef = FirebaseDatabase.instance.ref().child('Users');
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -139,6 +144,7 @@ class _findDonorState extends State<findDonor> {
 
                       Map persons = snapshot.value as Map;
                       persons['key'] = snapshot.key;
+                      print(persons['key']);
 
                       return listItem(persons: persons);
 

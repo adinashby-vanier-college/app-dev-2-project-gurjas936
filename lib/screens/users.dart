@@ -1,4 +1,5 @@
 
+import 'package:blood_bank/data/userData.dart';
 import 'package:blood_bank/screens/settings.dart';
 import 'package:blood_bank/screens/signIn.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -27,9 +28,18 @@ class _UsersState extends State<Users> {
   @override
   void initState() {
     super.initState();
-    dbRef = FirebaseDatabase.instance.ref().child('persons');
+    dbRef = FirebaseDatabase.instance.ref().child('Users');
+    getUserData();
   }
 
+
+  // Query ref = FirebaseDatabase.instance.ref().child('Users');
+void getUserData() async{
+  DataSnapshot snapshot = await dbRef.child(userData.userKey).get();
+  Map Users = snapshot.value as Map;
+  Users['key'] = snapshot.key;
+  print(Users);
+}
 
 
   GlobalKey<ScaffoldState> _globalKey = GlobalKey<ScaffoldState>();
@@ -41,6 +51,10 @@ class _UsersState extends State<Users> {
 
   // Users usersObject; _UsersState(this.usersObject);
   Map<String, String> persons = Map();
+
+
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -94,6 +108,7 @@ class _UsersState extends State<Users> {
                             color: Color(0xffe72041)),
                       ),
                     ),
+
                     const Divider(
                       thickness: 2,
                       color: Colors.black,
@@ -682,6 +697,7 @@ class _UsersState extends State<Users> {
                                 borderRadius: BorderRadius.circular(20)),
                           ),
                           onPressed: () {
+                            getUserData();
                             // dbRef.push().set(students);
                           },
                           child: Row(

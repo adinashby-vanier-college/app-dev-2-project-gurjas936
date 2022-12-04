@@ -2,9 +2,7 @@ import 'package:blood_bank/screens/signIn.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
-import 'package:blood_bank/screens/navBar.dart';
-
-import 'users.dart';
+import 'package:blood_bank/data/userData.dart';
 
 class createAccount extends StatefulWidget {
   const createAccount({Key? key}) : super(key: key);
@@ -25,7 +23,6 @@ class _createAccount extends State<createAccount> {
   @override
   void initState() {
     super.initState();
-    dbRef = FirebaseDatabase.instance.ref().child('Users');
   }
 
   @override
@@ -238,14 +235,17 @@ class _createAccount extends State<createAccount> {
                                     ));
 
                             try {
-                              await FirebaseAuth.instance
+
+                             var user = await FirebaseAuth.instance
                                   .createUserWithEmailAndPassword(
                                       email: _textController.text.trim(),
                                       password:
                                           _passwordController.text.trim());
+                             userData.userKey = user.user!.uid;
                             } on FirebaseAuthException catch (e) {
                               print(e);
                             }
+                            dbRef = FirebaseDatabase.instance.ref().child('Users'+userData.userKey);
 
                             Map<String, String> Users = {
                               'name': _name.text,

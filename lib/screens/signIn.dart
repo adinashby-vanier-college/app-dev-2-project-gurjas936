@@ -1,8 +1,10 @@
+import 'package:blood_bank/data/userData.dart';
 import 'package:blood_bank/screens/users.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:flutter/gestures.dart';
-
+import 'package:firebase_database/firebase_database.dart';
+import 'package:firebase_database/ui/firebase_animated_list.dart';
+import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:blood_bank/screens/navBar.dart';
 
@@ -12,22 +14,22 @@ class signIn extends StatefulWidget {
   @override
   State<signIn> createState() => _signInState();
 }
-
-
+bool isPasswordTextField = true;
+bool showPassword = false;
 final _emailController = TextEditingController();
 
 final _passwordController = TextEditingController();
+Query dbRef = FirebaseDatabase.instance.ref().child('Users');
 
 String getEmail() {
   return _emailController.text.trim();
 }
 
 class _signInState extends State<signIn> {
-
   // const signIn({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, ) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       backgroundColor: const Color(0xffe72041),
@@ -56,16 +58,28 @@ class _signInState extends State<signIn> {
           Container(
             padding: const EdgeInsets.only(right: 20.0, left: 20.0, bottom: 10),
             child: TextFormField(
+              style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 20
+              ),
               controller: _emailController,
               decoration: InputDecoration(
                   fillColor: const Color(0xffe72041),
-                  hintText: "Email Id",
-                  hintStyle: const TextStyle(
+                  labelText: "Email Id",
+                  labelStyle: const TextStyle(
                       color: Colors.white, fontFamily: 'Quicksand'),
                   filled: true,
                   enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(15),
                     borderSide: const BorderSide(width: 3, color: Colors.white),
+                  ),
+                  errorBorder: OutlineInputBorder(
+                    borderSide: BorderSide(
+                      color: Colors.black
+                    )
+                  ),
+                  errorStyle: TextStyle(
+                    color: Colors.black,
                   ),
                   suffixIcon: IconButton(
                     onPressed: () {
@@ -76,6 +90,10 @@ class _signInState extends State<signIn> {
                       color: Colors.white,
                     ),
                   )),
+              autovalidateMode: AutovalidateMode.onUserInteraction,
+              validator:(email) =>
+              email != null && !EmailValidator.validate(email)
+                  ? 'Enter a valid email' : null,
             ),
           ),
 
@@ -83,21 +101,34 @@ class _signInState extends State<signIn> {
           Container(
             padding: const EdgeInsets.only(right: 20.0, left: 20.0, bottom: 10),
             child: TextFormField(
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 20
+              ),
               controller: _passwordController,
-              obscureText: true,
+              obscureText: isPasswordTextField ? showPassword : false,
               decoration: InputDecoration(
                 fillColor: const Color(0xffe72041),
-                hintText: "Password",
-                hintStyle: const TextStyle(
+                labelText: "Password",
+                labelStyle: const TextStyle(
                     color: Colors.white, fontFamily: 'Quicksand'),
                 filled: true,
                 enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(15),
                   borderSide: const BorderSide(width: 3, color: Colors.white),
                 ),
+                errorBorder: OutlineInputBorder(
+                    borderSide: BorderSide(
+                        color: Colors.black
+                    )
+                ),
+                errorStyle: TextStyle(
+                  color: Colors.black,
+                ),
                 suffixIcon: IconButton(
-                  onPressed: () {
-                    //obscureText: false;
+                  onPressed: () {setState(() {
+                    showPassword = !showPassword;
+                  });
                   },
                   icon: const Icon(
                     Icons.remove_red_eye_outlined,
@@ -105,6 +136,10 @@ class _signInState extends State<signIn> {
                   ),
                 ),
               ),
+              autovalidateMode: AutovalidateMode.onUserInteraction,
+              validator:(value) =>
+              value != null && value.length<6
+                  ? 'Enter minimum 6 characters' : null,
             ),
           ),
 
@@ -135,27 +170,25 @@ class _signInState extends State<signIn> {
                 // side: BorderSide(width: 1.0, color: Color(0xffffffff)),
               ),
               onPressed: () async {
-                await FirebaseAuth.instance.signInWithEmailAndPassword(
-                    email: _emailController.text.trim(),
-                    password: _passwordController.text.trim()).then((value) =>
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => Users()),
-                    )
-                );
+                await FirebaseAuth.instance
+                    .signInWithEmailAndPassword(
+                        email: _emailController.text.trim(),
+                        password: _passwordController.text.trim())
+                    .then((value) {
+                  userData.userKey = FirebaseAuth.instance.currentUser!.uid;
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Users()),
+                  );
+                });
+
+                // Navigator.push(
+                //         context,
+                //         MaterialPageRoute(builder: (context) => Users()),
+                // );
 
                 _emailController.clear();
                 _passwordController.clear();
-
-                // FirebaseAuth.instance
-                //     .signInWithEmailAndPassword(
-                //         email: _emailController.text,
-                //         password: _passwordController.text)
-                //     .then((value) => Navigator.push(
-                //   context,
-                //   MaterialPageRoute(builder: (context) => Users()),
-                // ),
-                // );
               },
               child: const Text(
                 'Sign in',
