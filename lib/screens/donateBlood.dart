@@ -136,38 +136,119 @@ class _donateBloodState extends State<donateBlood> {
   }
   Widget listItem({required Map hospitals}) {
     return Container(
+
       margin: const EdgeInsets.all(10),
       padding: const EdgeInsets.all(10),
-      height: 110,
+      height: 150,
       color: Color(0xffe72041),
-      child: Column(
+
+      child: SingleChildScrollView(
+        scrollDirection: Axis.horizontal,
+        child: Row(
+
+            mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+          /*  const SizedBox(
+              height: 5,
+            ),*/
+          Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: Column(
+
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            //crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(left:5),
+                child: Container(
+                  height: 70,
+                  width: 70,
+                  decoration: const BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage('images/pp.jpg'),
+                      fit: BoxFit.cover,
+                    ),
+                    borderRadius:
+                    BorderRadius.all(Radius.circular(60.0)),
+                  ),
+                ),
+              ),
+            ],
+        ),
+          ),
+    /*  const SizedBox(
+          height: 5,
+        ),*/
+     /* margin: const EdgeInsets.all(10),
+        padding: const EdgeInsets.all(10),
+        height: 110,
+        color: Color(0xffe72041),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,*/
+        Padding(
+        padding: const EdgeInsets.all(0.0),
+    child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            hospitals['name'],
-            style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400,color: Colors.white),
-          ),
-          const SizedBox(
-            height: 5,
-          ),
-          Text(
-            hospitals['address'],
-            style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400,color: Colors.white),
-          ),
-          const SizedBox(
-            height: 5,
-          ),
-          Text(
-            hospitals['postal'],
-            style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400,color: Colors.white),
-          ),
-          Text(
-            hospitals['contact'],
-            style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400,color: Colors.white),
-          ),
-          //
-        ],
+          children: [
+            Text(
+              hospitals['name'],
+              style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400,color: Colors.white),
+            ),
+            const SizedBox(
+              height: 5,
+            ),
+            Text(
+              hospitals['address'],
+              style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400,color: Colors.white),
+            ),
+            const SizedBox(
+              height: 5,
+            ),
+            Text(
+              hospitals['postal'],
+              style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400,color: Colors.white),
+            ),
+            Text(
+              hospitals['contact'],
+              style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400,color: Colors.white),
+            ),
+            //
+          ],
+        ),
+        ),
+           const SizedBox(
+              height: 70,
+            ),
+            Row(
+              // mainAxisAlignment: MainAxisAlignment.end,
+              crossAxisAlignment: CrossAxisAlignment.end,
+
+              children: [
+                const SizedBox(
+                  height: 140,
+                ),
+
+                Padding(
+                    padding: const EdgeInsets.only(left:0),
+
+                    child:IconButton(
+                      icon:Icon(Icons.send_outlined),
+                      onPressed: () {
+
+                      },
+
+                      color: Colors.white,
+
+                    )
+                ),
+              ],
+            ),
+
+          ]
+    ),
       ),
     );
   }
