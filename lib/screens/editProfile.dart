@@ -1,3 +1,5 @@
+import 'package:blood_bank/data/userData.dart';
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 
 import 'users.dart';
@@ -17,14 +19,22 @@ class SettingsUI extends StatelessWidget {
 
 class EditProfilePage extends StatefulWidget {
 
-
   @override
   _EditProfilePageState createState() => _EditProfilePageState();
 }
 
 class _EditProfilePageState extends State<EditProfilePage> {
-  bool showPassword = false;
+  late DatabaseReference dbRef;
 
+@override
+void initState() {
+  super.initState();
+  dbRef = FirebaseDatabase.instance.ref().child('Users/');
+}
+  bool showPassword = false;
+  TextEditingController name = TextEditingController();
+  TextEditingController email = TextEditingController();
+  TextEditingController bloodGroup = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -120,11 +130,11 @@ class _EditProfilePageState extends State<EditProfilePage> {
               SizedBox(
                 height: 35,
               ),
-              buildTextField("Full Name", "abc", false),
-              buildTextField("E-mail", "abc@gmail.com", false),
-              buildTextField("Password", "********", true),
-              buildTextField("Location", "Montreal,Canada", false),
-              buildTextField("Blood Group", "o+", false),
+              buildTextField("Full Name", userData.name, false, name),
+              buildTextField("E-mail", userData.email, false,email),
+              // buildTextField("Password", "********", true),
+              // buildTextField("Location", "Montreal,Canada", false),
+              buildTextField("Blood Group", userData.bloodGroup, false,bloodGroup),
               SizedBox(
                 height: 35,
               ),
@@ -145,7 +155,18 @@ class _EditProfilePageState extends State<EditProfilePage> {
                   ElevatedButton(
                     child: Text('UPDATE'),
                     onPressed: () {
-                     // print('Pressed');
+                      Map<String, String> Users = {
+                        'name': name.text,
+                        'age': userData.age,
+                        'bloodGroup': userData.bloodGroup,
+                        'email': userData.email
+                      };
+
+                      dbRef.child(userData.userKey+"/" + "-NIUJGM5pL3JPDSOji6Q").update(Users)
+                          .then((value) =>
+                      {
+                        Navigator.pop(context)
+                      });
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.red,
@@ -163,10 +184,11 @@ class _EditProfilePageState extends State<EditProfilePage> {
   }
 
   Widget buildTextField(
-      String labelText, String placeholder, bool isPasswordTextField) {
+      String labelText, String placeholder, bool isPasswordTextField, TextEditingController text) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 35.0),
       child: TextField(
+        controller: text,
         obscureText: isPasswordTextField ? showPassword : false,
         decoration: InputDecoration(
             suffixIcon: isPasswordTextField

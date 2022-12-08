@@ -1,5 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.blood_bank">
+    <uses-permission android:name="android.permission.INTERNET" />
    <application
         android:label="blood_bank"
         android:name="${applicationName}"

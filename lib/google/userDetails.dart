@@ -1,30 +1,31 @@
 import 'package:blood_bank/screens/signIn.dart';
+import 'package:blood_bank/screens/users.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:blood_bank/data/userData.dart';
 
-class createAccount extends StatefulWidget {
-  const createAccount({Key? key}) : super(key: key);
+
+import '../screens/signIn.dart';
+
+class userDetails extends StatefulWidget {
+  const userDetails({Key? key}) : super(key: key);
 
   @override
-  State<createAccount> createState() => _createAccount();
+  State<userDetails> createState() => _userDetailsState();
 }
 
-class _createAccount extends State<createAccount> {
+class _userDetailsState extends State<userDetails> {
+
   TextEditingController _textController = TextEditingController();
   TextEditingController _name = TextEditingController();
   TextEditingController _age = TextEditingController();
   TextEditingController _bloodGroup = TextEditingController();
   TextEditingController _passwordController = TextEditingController();
 
-  bool showPassword = true;
   late DatabaseReference dbRef;
 
-  @override
-  void initState() {
-    super.initState();
-  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -188,41 +189,6 @@ class _createAccount extends State<createAccount> {
                         ),
                       ),
 
-                      ///////////////////////////////////// Password Field
-                      Container(
-                        padding: const EdgeInsets.only(
-                            right: 20.0, left: 20.0, bottom: 10),
-                        child: TextFormField(
-                          style: TextStyle(color: Colors.white, fontSize: 20),
-                          controller: _passwordController,
-                          obscureText: showPassword,
-                          decoration: InputDecoration(
-                            fillColor: const Color(0xffe72041),
-                            labelText: "Password",
-                            labelStyle: const TextStyle(
-                                color: Colors.white, fontFamily: 'Quicksand'),
-                            filled: true,
-                            enabledBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(15),
-                              borderSide: const BorderSide(
-                                  width: 3, color: Colors.white),
-                            ),
-                            suffixIcon: IconButton(
-                              onPressed: () {
-                                setState(() {
-                                  showPassword = !showPassword;
-                                });
-                              },
-                              icon: const Icon(
-                                Icons.remove_red_eye_outlined,
-                                color: Colors.white,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-
-                      //////////////////////////////////////////Forgot Password
                       SizedBox(
                         width: 350,
                         height: 55,
@@ -238,45 +204,39 @@ class _createAccount extends State<createAccount> {
                                 context: context,
                                 barrierDismissible: false,
                                 builder: (context) => Center(
-                                      child: CircularProgressIndicator(),
-                                    ));
+                                  child: CircularProgressIndicator(),
+                                ));
 
                             try {
 
-                             var user = await FirebaseAuth.instance
+                              var user = await FirebaseAuth.instance
                                   .createUserWithEmailAndPassword(
-                                      email: _textController.text.trim(),
-                                      password: _passwordController.text.trim());
-                             userData.userKey = user.user!.uid;
+                                  email: _textController.text.trim(),
+                                  password: _passwordController.text.trim());
+                              userData.userKey = user.user!.uid;
                             } on FirebaseAuthException catch (e) {
                               print(e);
                             }
                             dbRef = FirebaseDatabase.instance.ref().child('Users/');
 
-                            Map<String, String> Users = {
+                            Map<String, String> data = {
                               'name': _name.text,
                               'age': _age.text,
                               'bloodGroup': _bloodGroup.text,
-                              'email': _textController.text,
+                              'email': userData.email,
                             };
 
-                            dbRef.child(userData.userKey).set(Users).then(
+                            dbRef.child(userData.userKey).set(data).then(
                                   (value) => Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => signIn()),
-                                  ),
-                                );
-                            // navigatorKey.currentState!.popUntil((route) => route());
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => Users()),
+                              ),
+                            );
 
-                            // Navigator.push(
-                            //   context,
-                            //   MaterialPageRoute(
-                            //       builder: (context) => Users()),
-                            // );
                           },
                           child: const Text(
-                            'Create Account',
+                            'Continue',
                             style: TextStyle(
                                 color: Color(0xffe72041),
                                 fontFamily: 'Quicksand',

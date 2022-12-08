@@ -1,7 +1,9 @@
 
+import 'package:blood_bank/data/userData.dart';
 import 'package:blood_bank/screens/settings.dart';
 import 'package:blood_bank/screens/signIn.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:blood_bank/screens/donateBlood.dart';
@@ -9,7 +11,6 @@ import 'package:blood_bank/screens/editProfile.dart';
 import 'package:blood_bank/screens/history.dart';
 import 'feedback.dart';
 import 'findDonor.dart';
-import 'logout.dart';
 
 
 
@@ -21,26 +22,53 @@ class Users extends StatefulWidget {
   @override
   State<Users> createState() => _UsersState();
 }
-
-class _UsersState extends State<Users> {
+class _UsersState extends State<Users>{
   late DatabaseReference dbRef;
+
   @override
-  void initState() {
-    super.initState();
-    dbRef = FirebaseDatabase.instance.ref().child('persons');
+  void activate() {
+
+    super.activate();
+    getUserData();
   }
 
+  @override
+  void initState() {
+    dbRef = FirebaseDatabase.instance.ref().child("Users");
+
+  getUserData();
+    super.initState();
+
+  }
+  late bool done;
+
+ // Query ref = FirebaseDatabase.instance.ref().child('Users');
+  void getUserData() async{
+    DataSnapshot snapshot = await dbRef.child(userData.userKey).get();
+    print(snapshot);
+
+    if(snapshot.exists) {
+
+      Map Users = snapshot.value as Map;
+
+      Map<String, String> u = Map<String, String>.from(Users);
+
+      userData.name = u['name']!;
+      userData.age = u['age']!;
+      userData.bloodGroup = u['bloodGroup']!;
+      userData.email = u["email"]!;
+    }
+
+    else print("no Data");
+
+}
 
 
   GlobalKey<ScaffoldState> _globalKey = GlobalKey<ScaffoldState>();
   bool value = false;
   final FirebaseAuth _auth = FirebaseAuth.instance;
-  String _name = "abc";
-  String _age = "27";
-  String _bloodGroup = "AB+";
-
-  // Users usersObject; _UsersState(this.usersObject);
   Map<String, String> persons = Map();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -87,13 +115,14 @@ class _UsersState extends State<Users> {
                     ),
                     Container(
                       child:  Text(
-                        _name,
+                        userData.name,
                         style: TextStyle(
                             fontSize: 25,
                             fontWeight: FontWeight.w900,
                             color: Color(0xffe72041)),
                       ),
                     ),
+
                     const Divider(
                       thickness: 2,
                       color: Colors.black,
@@ -172,8 +201,14 @@ class _UsersState extends State<Users> {
                       onTap: () {
 
                         _auth.signOut();
+                        userData.name = "";
+                        userData.age = "";
+                        userData.bloodGroup = "";
+                        userData.email = "";
+                        userData.userKey = "";
                         Navigator.canPop(context) ? Navigator.pop(context) : null;
                         Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => signIn()));
+
                       },
                     ),
                   ],
@@ -229,7 +264,7 @@ class _UsersState extends State<Users> {
                               children: [
                                 Container(
                                   child:  Text(
-                                    'Blood Group: $_bloodGroup',
+                                    'Blood Group: ${userData.bloodGroup}',
                                     style: TextStyle(
                                         fontSize: 15,
                                         fontWeight: FontWeight.w900,
@@ -238,7 +273,7 @@ class _UsersState extends State<Users> {
                                 ),
                                 Container(
                                   child: Text(
-                                    'Age: $_age',
+                                    'Age: ${userData.age}',
                                     style: TextStyle(
                                         fontSize: 15,
                                         fontWeight: FontWeight.w900,
@@ -257,7 +292,7 @@ class _UsersState extends State<Users> {
                           child: Container(
                             alignment: Alignment.centerLeft,
                             child: Text(
-                              'Name: $_name',
+                              'Name: ${userData.name}',
                               style: TextStyle(
                                   fontSize: 15,
                                   fontWeight: FontWeight.w900,
@@ -567,7 +602,7 @@ class _UsersState extends State<Users> {
                                 shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(20)),
                               ),
-                              onPressed: () {
+                              onPressed: () async {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
@@ -643,24 +678,22 @@ class _UsersState extends State<Users> {
                                         setState(() => this.value = value);
                                         print(value);
                                         if(value){
+                                          dbRef = FirebaseDatabase.instance.ref().child('persons/');
                                           persons = {
-                                            'name': _name,
-                                            'age': _age,
-                                            'bloodGroup': _bloodGroup,
+                                            'name': userData.name,
+                                            'age': userData.age,
+                                            'bloodGroup': userData.bloodGroup,
                                             // 'email': _textController.text,
-
                                           };
-
-                                          dbRef.push().set(persons);
+                                          dbRef.child(userData.userKey).set(persons);
 
                                         }
                                         else{
-                                          DatabaseReference ref = FirebaseDatabase.instance.ref("persons/123");
-                                          print(ref.key); // "123"
-                                          print(dbRef.key);
-                                          // ref.child(persons['ref.key']!).remove();
+                                          dbRef = FirebaseDatabase.instance.ref().child('persons/');
+                                          dbRef.child(userData.userKey).remove();
 
                                         }
+
                                       }),
                                 ),
                               ),
@@ -682,6 +715,7 @@ class _UsersState extends State<Users> {
                                 borderRadius: BorderRadius.circular(20)),
                           ),
                           onPressed: () {
+                            getUserData();
                             // dbRef.push().set(students);
                           },
                           child: Row(
@@ -734,4 +768,5 @@ class _UsersState extends State<Users> {
       ]),
     );
   }
+
 }
