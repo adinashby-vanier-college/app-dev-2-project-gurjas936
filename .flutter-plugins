@@ -7,3 +7,7 @@ firebase_core_web=C:\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\firebase_co
 firebase_database=C:\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\firebase_database-10.0.6\\
 firebase_database_web=C:\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\firebase_database_web-0.2.1+16\\
 flutter_native_splash=C:\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\flutter_native_splash-2.2.16\\
+google_sign_in=C:\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\google_sign_in-5.4.2\\
+google_sign_in_android=C:\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\google_sign_in_android-6.1.4\\
+google_sign_in_ios=C:\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\google_sign_in_ios-5.5.1\\
+google_sign_in_web=C:\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\google_sign_in_web-0.10.2\\

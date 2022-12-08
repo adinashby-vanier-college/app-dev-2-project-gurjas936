@@ -3,6 +3,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../other/snackBar.dart';
+
 class ForgotPassword extends StatefulWidget {
   const ForgotPassword({Key? key}) : super(key: key);
 
@@ -82,25 +84,6 @@ class _ForgotPasswordState extends State<ForgotPassword> {
             ),
           ),
 
-          ///////////////////////////////////// Password Field
-
-
-          //////////////////////////////////////////Forgot Password
-          Container(
-            margin: const EdgeInsets.only(right: 20, bottom: 30),
-            alignment: Alignment.centerRight,
-            child: TextButton(
-              child: const Text(
-                "Forgot Password!",
-                style: TextStyle(
-                  color: Colors.white,
-                  fontFamily: 'Quicksand',
-                ),
-              ),
-              onPressed: () {},
-            ),
-          ),
-
           SizedBox(
             width: 350,
             height: 55,
@@ -111,10 +94,19 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                     borderRadius: BorderRadius.circular(10)),
                 // side: BorderSide(width: 1.0, color: Color(0xffffffff)),
               ),
-              onPressed: () async {
+              onPressed: () async{
+                try {
+                  await FirebaseAuth.instance.sendPasswordResetEmail(
+                      email: _emailController.text.trim());
+                }on FirebaseAuthException catch(e){
+                  print(e);
+                }
 
-
-              },
+                },
+              //   snackBar.message = "Reset Email has been sent";
+              //   ScaffoldMessenger.of(context).showSnackBar(snackBar().Bar);
+              //
+              // },
               child: const Text(
                 'Reset Password',
                 style: TextStyle(
@@ -132,4 +124,10 @@ class _ForgotPasswordState extends State<ForgotPassword> {
 
     );
   }
+}
+
+Future resetPassword() async{
+
+  await FirebaseAuth.instance.sendPasswordResetEmail(email: _emailController.text.trim());
+
 }
