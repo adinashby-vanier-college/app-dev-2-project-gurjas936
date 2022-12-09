@@ -1,6 +1,8 @@
 import 'package:firebase_database/firebase_database.dart';
 import 'package:firebase_database/ui/firebase_animated_list.dart';
 import 'package:flutter/material.dart';
+import 'package:blood_bank/data/userData.dart';
+
 
 void main() {
   runApp(const donateBlood());
@@ -69,19 +71,20 @@ class _donateBloodState extends State<donateBlood> {
                                 mainAxisAlignment: MainAxisAlignment.end,
                                 children: [
                                   Container(
-                                    child: const Text(
-                                      'Blood Type:',
+                                    child: Text(
+                                      'Blood Group: ${userData.bloodGroup}',
                                       style: TextStyle(
-                                          fontSize: 20,
+                                          fontSize: 15,
                                           fontWeight: FontWeight.w900,
                                           color: Colors.white),
                                     ),
                                   ),
                                   Container(
-                                    child: const Text(
-                                      'Age:',
+                                    child: Text(
+                                  'Age: ${userData.age}',
+
                                       style: TextStyle(
-                                          fontSize: 20,
+                                          fontSize: 15,
                                           fontWeight: FontWeight.w900,
                                           color: Colors.white),
                                     ),
@@ -95,10 +98,10 @@ class _donateBloodState extends State<donateBlood> {
                             const EdgeInsets.only(left: 45, bottom: 40),
                             child: Container(
                               alignment: Alignment.centerLeft,
-                              child: const Text(
-                                'abc',
+                              child: Text(
+                                'Name: ${userData.name}',
                                 style: TextStyle(
-                                    fontSize: 25,
+                                    fontSize: 15,
                                     fontWeight: FontWeight.w900,
                                     color: Colors.white),
                               ),

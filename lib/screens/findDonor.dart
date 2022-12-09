@@ -2,19 +2,21 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:firebase_database/ui/firebase_animated_list.dart';
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
+// import 'package:url_launcher/url_launcher.dart';
+import 'package:blood_bank/data/userData.dart';
+
 final Uri _url = Uri.parse('https://flutter.dev');
 void main() {
   runApp(const findDonor());
 }
-_sendingMails() async {
-  var url = Uri.parse("mailto:gillsimran213@gmail.com");
-  if (await canLaunchUrl(url)) {
-    await launchUrl(url);
-  } else {
-    throw 'Could not launch $url';
-  }
-}
+// _sendingMails() async {
+//   var url = Uri.parse("mailto:gillsimran213@gmail.com");
+//   if (await canLaunchUrl(url)) {
+//     await launchUrl(url);
+//   } else {
+//     throw 'Could not launch $url';
+//   }
+// }
 
 class findDonor extends StatefulWidget {
   const findDonor({Key? key}) : super(key: key);
@@ -27,11 +29,6 @@ class _findDonorState extends State<findDonor> {
   // private FirebaseAuth mAuth;
   Query dbRef = FirebaseDatabase.instance.ref().child('persons');
   DatabaseReference reference = FirebaseDatabase.instance.ref().child('persons');
-  //
-  // FirebaseDatabase database = FirebaseDatabase.instance;
-  // DatabaseReference databaseUsers = FirebaseDatabase.instance.ref().child('Users');
-  // String id = mAuth.getCurrentUser().getUid();
-  // DatabaseReference username = databaseUsers.child(id).child("username");
 
   @override
   Widget build(BuildContext context) {
@@ -82,19 +79,19 @@ class _findDonorState extends State<findDonor> {
                                 mainAxisAlignment: MainAxisAlignment.end,
                                 children: [
                                   Container(
-                                    child: const Text(
-                                      'Blood Type:',
+                                    child:  Text(
+                              'Blood Group: ${userData.bloodGroup}',
                                       style: TextStyle(
-                                          fontSize: 20,
+                                          fontSize: 15,
                                           fontWeight: FontWeight.w900,
                                           color: Colors.white),
                                     ),
                                   ),
                                   Container(
-                                    child: const Text(
-                                      'Age:',
+                                    child:Text(
+                                      'Age: ${userData.age}',
                                       style: TextStyle(
-                                          fontSize: 20,
+                                          fontSize: 15,
                                           fontWeight: FontWeight.w900,
                                           color: Colors.white),
                                     ),
@@ -108,10 +105,10 @@ class _findDonorState extends State<findDonor> {
                             const EdgeInsets.only(left: 45, bottom: 40),
                             child: Container(
                               alignment: Alignment.centerLeft,
-                              child: const Text(
-                                'abc',
+                              child: Text(
+                                'Name: ${userData.name}',
                                 style: TextStyle(
-                                    fontSize: 25,
+                                    fontSize: 15,
                                     fontWeight: FontWeight.w900,
                                     color: Colors.white),
                               ),
@@ -258,7 +255,7 @@ class _findDonorState extends State<findDonor> {
                   child:IconButton(
                     icon:Icon(Icons.send_outlined),
                     onPressed: () {
-                      _sendingMails;
+                      // _sendingMails;
 
                       /* child: const CustomWidget(
                       icon: Icons.forward_to_inbox,
