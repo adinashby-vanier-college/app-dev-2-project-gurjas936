@@ -12,9 +12,37 @@ class ForgotPassword extends StatefulWidget {
   State<ForgotPassword> createState() => _ForgotPasswordState();
 }
 
-final _emailController = TextEditingController();
-
 class _ForgotPasswordState extends State<ForgotPassword> {
+  final _emailController = TextEditingController();
+
+  @override
+  void dispose() {
+    _emailController.dispose();
+    super.dispose();
+  }
+
+  Future passwordReset() async {
+    try {
+      await FirebaseAuth.instance
+          .sendPasswordResetEmail(email: "gurjassingh47@gmail.com");
+      showDialog(context: context, builder: (context){
+        return AlertDialog(
+            content: Text("Email containg Password reset link has been sent!")
+        );
+
+      });
+
+
+    } on FirebaseAuthException catch (e) {
+      showDialog(context: context, builder: (context){
+        return AlertDialog(
+          content: Text(e.message.toString())
+        );
+
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -45,10 +73,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
           Container(
             padding: const EdgeInsets.only(right: 20.0, left: 20.0, bottom: 10),
             child: TextFormField(
-              style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 20
-              ),
+              style: TextStyle(color: Colors.white, fontSize: 20),
               controller: _emailController,
               decoration: InputDecoration(
                   fillColor: const Color(0xffe72041),
@@ -61,10 +86,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                     borderSide: const BorderSide(width: 3, color: Colors.white),
                   ),
                   errorBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                          color: Colors.black
-                      )
-                  ),
+                      borderSide: BorderSide(color: Colors.black)),
                   errorStyle: TextStyle(
                     color: Colors.black,
                   ),
@@ -78,9 +100,10 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                     ),
                   )),
               autovalidateMode: AutovalidateMode.onUserInteraction,
-              validator:(email) =>
-              email != null && !EmailValidator.validate(email)
-                  ? 'Enter a valid email' : null,
+              validator: (email) =>
+                  email != null && !EmailValidator.validate(email)
+                      ? 'Enter a valid email'
+                      : null,
             ),
           ),
 
@@ -94,15 +117,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                     borderRadius: BorderRadius.circular(10)),
                 // side: BorderSide(width: 1.0, color: Color(0xffffffff)),
               ),
-              onPressed: () async{
-                try {
-                  await FirebaseAuth.instance.sendPasswordResetEmail(
-                      email: _emailController.text.trim());
-                }on FirebaseAuthException catch(e){
-                  print(e);
-                }
-
-                },
+              onPressed: passwordReset,
               //   snackBar.message = "Reset Email has been sent";
               //   ScaffoldMessenger.of(context).showSnackBar(snackBar().Bar);
               //
@@ -117,17 +132,8 @@ class _ForgotPasswordState extends State<ForgotPassword> {
               ),
             ),
           ),
-
-
         ],
       ),
-
     );
   }
-}
-
-Future resetPassword() async{
-
-  await FirebaseAuth.instance.sendPasswordResetEmail(email: _emailController.text.trim());
-
 }

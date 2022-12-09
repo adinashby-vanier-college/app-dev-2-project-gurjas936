@@ -132,8 +132,6 @@ void initState() {
               ),
               buildTextField("Full Name", userData.name, false, name),
               buildTextField("E-mail", userData.email, false,email),
-              // buildTextField("Password", "********", true),
-              // buildTextField("Location", "Montreal,Canada", false),
               buildTextField("Blood Group", userData.bloodGroup, false,bloodGroup),
               SizedBox(
                 height: 35,
@@ -155,14 +153,26 @@ void initState() {
                   ElevatedButton(
                     child: Text('UPDATE'),
                     onPressed: () {
-                      Map<String, String> Users = {
-                        'name': name.text,
-                        'age': userData.age,
-                        'bloodGroup': userData.bloodGroup,
-                        'email': userData.email
+                      if (name.text != ""){
+                        userData.name = name.text;
+                      };
+                      if (bloodGroup.text != ""){
+                        userData.bloodGroup = bloodGroup.text;
+                      };
+                      if (email.text != ""){
+                        userData.email = email.text;
                       };
 
-                      dbRef.child(userData.userKey+"/" + "-NIUJGM5pL3JPDSOji6Q").update(Users)
+
+                      Map<String, String> Users = {
+
+                        'name': userData.name,
+                        'age': userData.age,
+                        'bloodGroup': userData.bloodGroup,
+                        'email': userData.email,
+                      };
+
+                      dbRef.child(userData.userKey).update(Users)
                           .then((value) =>
                       {
                         Navigator.pop(context)

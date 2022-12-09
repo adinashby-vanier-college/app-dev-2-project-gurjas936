@@ -11,6 +11,9 @@ import 'package:blood_bank/screens/editProfile.dart';
 import 'package:blood_bank/screens/history.dart';
 import 'feedback.dart';
 import 'findDonor.dart';
+import 'package:blood_bank/api/userData.dart';
+import 'package:blood_bank/api/constants.dart';
+
 
 
 
@@ -25,6 +28,9 @@ class Users extends StatefulWidget {
 class _UsersState extends State<Users>{
   late DatabaseReference dbRef;
 
+
+
+
   @override
   void activate() {
 
@@ -36,12 +42,13 @@ class _UsersState extends State<Users>{
   void initState() {
     dbRef = FirebaseDatabase.instance.ref().child("Users");
 
+    getUD();
   getUserData();
     super.initState();
 
   }
   late bool done;
-
+  late var userInfo;
  // Query ref = FirebaseDatabase.instance.ref().child('Users');
   void getUserData() async{
     DataSnapshot snapshot = await dbRef.child(userData.userKey).get();
@@ -63,6 +70,14 @@ class _UsersState extends State<Users>{
 
 }
 
+///////////////////////////////////////////////////////////////////////////////////     API
+
+
+  void getUD() async {
+    userInfo = await  UserData().getInformation();
+  }
+
+
 
   GlobalKey<ScaffoldState> _globalKey = GlobalKey<ScaffoldState>();
   bool value = false;
@@ -73,7 +88,11 @@ class _UsersState extends State<Users>{
   Widget build(BuildContext context) {
     return Scaffold(
       key: _globalKey,
-      drawer: Drawer(
+      drawer: userInfo == null || userInfo!.isEmpty
+          ? const Center(
+        child: CircularProgressIndicator(),
+      )
+          : Drawer(
         child: Padding(
           padding: const EdgeInsets.all(10.0),
           child: ListView(
@@ -327,6 +346,15 @@ class _UsersState extends State<Users>{
                           ),
                         ),
                       ),
+
+
+
+
+
+
+
+
+
                       SizedBox(
                         height: 110,
                         child: ListView(
@@ -358,13 +386,7 @@ class _UsersState extends State<Users>{
                                               CrossAxisAlignment.start,
                                           children: [
                                             Container(
-                                              child: const Text(
-                                                'City Hospital',
-                                                style: TextStyle(
-                                                    fontSize: 20,
-                                                    color: Colors.black),
-                                              ),
-                                            ),
+                                              child: Text(userInfo[0]['username'], style: headStyle),),
                                             Container(
                                               child: const Text(
                                                 '928 Rue Veniard Saint Laurent',
@@ -530,6 +552,16 @@ class _UsersState extends State<Users>{
                           ],
                         ),
                       ),
+
+
+
+
+
+
+
+
+
+
                       const Padding(
                         padding: EdgeInsets.all(12.0),
                         child: Divider(
