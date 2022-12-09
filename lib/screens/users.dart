@@ -360,13 +360,14 @@ class _UsersState extends State<Users> {
                                               Border.all(color: Colors.black),
                                         ),
                                         child: TextButton(
-                                          onPressed: () {
-                                            Navigator.push(
-                                              context,
-                                              MaterialPageRoute(
-                                                  builder: (context) =>
-                                                      SimpleMapScreen()),
-                                            );
+                                          onPressed: ()
+    {
+                                          //   Navigator.push(
+                                          //     context,
+                                          //     MaterialPageRoute(
+                                          //         builder: (context) =>
+                                          //             SimpleMapScreen()),
+                                          //   );
                                           },
                                           child: Row(
                                             children: [
