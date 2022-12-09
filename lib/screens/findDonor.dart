@@ -3,10 +3,25 @@ import 'package:firebase_database/firebase_database.dart';
 import 'package:firebase_database/ui/firebase_animated_list.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
-final Uri _url = Uri.parse('https://flutter.dev');
+//final Uri _url = Uri.parse('https://flutter.dev');
 void main() {
   runApp(const findDonor());
 }
+String? encodeQueryParameters(Map<String, String> params) {
+  return params.entries
+      .map((MapEntry<String, String> e) =>
+  '${Uri.encodeComponent(e.key)}=${Uri.encodeComponent(e.value)}')
+      .join('&');
+}
+// ···
+final Uri emailLaunchUri = Uri(
+  scheme: 'mailto',
+  path: 'gurjassingh47@gmail.com',
+  query: encodeQueryParameters(<String, String>{
+    'subject': 'Blood Donation',
+  }),
+);
+
 _sendingMails() async {
   var url = Uri.parse("mailto:gillsimran213@gmail.com");
   if (await canLaunchUrl(url)) {
@@ -256,9 +271,10 @@ class _findDonorState extends State<findDonor> {
                   padding: const EdgeInsets.only(left: 60),
 
                   child:IconButton(
-                    icon:Icon(Icons.send_outlined),
+                    icon:const Icon(Icons.send_outlined),
                     onPressed: () {
-                      _sendingMails;
+                      //_sendingMails;
+                      launchUrl(emailLaunchUri);
 
                       /* child: const CustomWidget(
                       icon: Icons.forward_to_inbox,

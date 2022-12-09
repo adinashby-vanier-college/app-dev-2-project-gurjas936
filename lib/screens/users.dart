@@ -9,6 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:blood_bank/screens/donateBlood.dart';
 import 'package:blood_bank/screens/editProfile.dart';
 import 'package:blood_bank/screens/history.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'feedback.dart';
 import 'findDonor.dart';
 import 'package:blood_bank/api/userData.dart';
@@ -47,8 +48,18 @@ class _UsersState extends State<Users>{
     super.initState();
 
   }
+  final String _phoneNumber = '+5147948043';
   late bool done;
   late var userInfo;
+
+  _makingPhoneCall() async {
+    var url = Uri.parse("tel:5147948043");
+    if (await canLaunchUrl(url)) {
+      await launchUrl(url);
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
  // Query ref = FirebaseDatabase.instance.ref().child('Users');
   void getUserData() async{
     DataSnapshot snapshot = await dbRef.child(userData.userKey).get();
@@ -768,6 +779,7 @@ class _UsersState extends State<Users>{
                               const SizedBox(
                                 width: 20,
                               ),
+
                               Container(
                                 child: const Text(
                                   'Call Emergency',
