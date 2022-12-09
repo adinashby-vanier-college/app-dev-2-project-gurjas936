@@ -1,9 +1,6 @@
 import 'package:firebase_database/firebase_database.dart';
 import 'package:firebase_database/ui/firebase_animated_list.dart';
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
-
-import 'findDonor.dart';
 
 void main() {
   runApp(const donateBlood());
@@ -15,13 +12,7 @@ class donateBlood extends StatefulWidget {
   @override
   State<donateBlood> createState() => _donateBloodState();
 }
-final Uri emailLaunchUri = Uri(
-  scheme: 'mailto',
-  path: 'nancy89jindal@gmail.com',
-  query: encodeQueryParameters(<String, String>{
-    'subject': 'Blood Donation!',
-  }),
-);
+
 class _donateBloodState extends State<donateBlood> {
 
   Query dbRef = FirebaseDatabase.instance.ref().child('hospitals');
@@ -246,7 +237,7 @@ class _donateBloodState extends State<donateBlood> {
                     child:IconButton(
                       icon:Icon(Icons.send_outlined),
                       onPressed: () {
-                        launchUrl(emailLaunchUri);
+
                       },
 
                       color: Colors.white,
